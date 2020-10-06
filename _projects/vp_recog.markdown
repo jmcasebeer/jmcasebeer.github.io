@@ -1,0 +1,7 @@
+---
+layout: page
+title: Verbal Protest Recognition
+description:
+img: /assets/img/vp.png
+redirect: https://sigport.org/sites/default/files/docs/icassp2018_verbal_protest_poster.final__0.pdf
+---
