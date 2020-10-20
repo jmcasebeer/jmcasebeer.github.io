@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Jonah Casebeer | ADFE</title>
+<meta name="description" content="">
+
+<!-- Bootstrap & MDB -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.17.0/css/mdb.min.css" integrity="sha256-/SwJ2GDcEt5382i8zqDwl36VJGECxEoIcBIuoLmLR4g=" crossorigin="anonymous" />
+
+<!-- Fonts & Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"  integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+
+<!-- Styles -->
+<link rel="shortcut icon" href="/assets/img/favicon.ico">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<link rel="canonical" href="/projects/adfe/">
+
+<!-- Open Graph -->
+
+
+  </head>
+
+  <body class="fixed-top-nav ">
+
+    <!-- Header -->
+
+    <header>
+
+    <!-- Nav Bar -->
+    <nav id="navbar" class="navbar navbar-light bg-white navbar-expand-sm fixed-top">
+    <div class="container">
+      
+      
+      
+      
+      
+      <a class="navbar-brand title font-weight-lighter" href="/">
+       <span class="font-weight-bold">Jonah</span>   Casebeer
+      </a>
+      
+      <!-- Navbar Toogle -->
+      <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse text-right" id="navbarNav">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          <!-- About -->
+          <li class="nav-item ">
+            <a class="nav-link" href="/">
+              about
+              
+            </a>
+          </li>
+          
+          <!-- Other pages -->
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="nav-item ">
+              <a class="nav-link" href="/projects/">
+                projects
+                
+              </a>
+          </li>
+          
+          
+          
+          <li class="nav-item ">
+              <a class="nav-link" href="/publications/">
+                publications
+                
+              </a>
+          </li>
+          
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</header>
+
+
+    <!-- Content -->
+
+    <div class="container mt-5">
+      <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">ADFE</h1>
+    <p class="post-description">Learning transforms for source separation</p>
+  </header>
+
+  <article>
+    <h1 id="adaptive-front-ends-for-end-to-end-source-separation">Adaptive Front-ends for End-to-end Source Separation</h1>
+<p>Source separation and other audio applications have traditionally relied on the use of short-time Fourier transforms as a front-end frequency domain representation step. The unavailability of a neural network equivalent to forward and inverse transforms hinders the implementation of end-to-end learning systems for these applications. We present an auto-encoder neural network that can act as an equivalent to short-time front-end transforms. We demonstrate the ability of the network to learn optimal, real-valued basis functions directly from the raw waveform of a signal and further show how it can be used as an adaptive front-end for supervised source separation. In terms of separation performance, these transforms significantly outperform their Fourier counterparts. Finally, we also propose a novel source to distortion ratio based cost function for end-to-end source separation.</p>
+
+<p>Work by <a href="http://www.vshrikant.com/" target="\_blank">Shrikant Venkataramani</a>, Jonah Casebeer and <a href="http://paris.cs.illinois.edu/" target="\_blank">Paris Smaragdis</a>.</p>
+
+<p>Check out our NIPS workshop paper <a href="http://paris.cs.illinois.edu/pubs/shrikant-nips2017.pdf" target="\_blank">here</a> for more details.</p>
+
+<p>Here are some samples of the model in action!</p>
+
+<ol>
+  <li><strong>Reference</strong>: Two overlayed voices from the TIMIT dataset.</li>
+  <li><strong>Female DFT</strong>: The female voice separated by a classic fixed transform model.</li>
+  <li><strong>Female ADFE</strong>: The female voice separated by our adaptive front end model.</li>
+  <li><strong>Female ADFEO</strong>: The female voice separated by our adaptive front end model with orthogonal(tied) front and back ends.</li>
+</ol>
+
+<table border="1" style="margin:0px auto; width:50%">
+  <tr>
+    <td>#.</td>
+    <td>Reference.</td>
+    <td>Female DFT</td>
+    <td>Female ADFE</td>
+    <td>Female ADFEO</td>
+
+
+  </tr>
+  <tr>
+    <td>1</td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/overlap_1.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/female_1.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/tsep/female_1.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/ortho/female_1.wav" /></audio></td>
+
+  </tr>
+  <tr>
+    <td>2</td>
+		<td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/overlap_2.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/female_2.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/tsep/female_2.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/ortho/female_2.wav" /></audio></td>
+
+  </tr>
+  <tr>
+    <td>3</td>
+		<td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/overlap_3.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/female_3.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/tsep/female_3.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/ortho/female_3.wav" /></audio></td>
+
+  </tr>
+  <tr>
+    <td>4</td>
+		<td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/overlap_4.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/female_4.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/tsep/female_4.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/ortho/female_4.wav" /></audio></td>
+
+  </tr>
+  <tr>
+    <td>5</td>
+		<td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/overlap_5.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/female_5.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/tsep/female_5.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/ortho/female_5.wav" /></audio></td>
+
+  </tr>
+  <tr>
+    <td>6</td>
+		<td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/overlap_6.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/female_6.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/tsep/female_6.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/ortho/female_6.wav" /></audio></td>
+
+  </tr>
+
+  <tr>
+    <td>7</td>
+		<td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/overlap_7.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/female_7.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/tsep/female_7.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/ortho/female_7.wav" /></audio></td>
+  </tr>
+  <tr>
+    <td>8</td>
+		<td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/overlap_8.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/female_8.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/tsep/female_8.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/ortho/female_8.wav" /></audio></td>
+
+  </tr>
+  <tr>
+    <td>9</td>
+		<td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/overlap_9.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/female_9.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/tsep/female_9.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/ortho/female_9.wav" /></audio></td>
+
+  </tr>
+  <tr>
+    <td>10</td>
+		<td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/overlap_10.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dft/female_10.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/tsep/female_10.wav" /></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/ortho/female_10.wav" /></audio></td>
+
+  </tr>
+</table>
+
+  </article>
+
+</div>
+
+    </div>
+
+    <!-- Footer -->
+
+    
+<footer class="fixed-bottom">
+  <div class="container mt-0">
+    &copy; Copyright 2020 Jonah Casebeer.
+    
+    
+    Last updated: October 20, 2020.
+    
+  </div>
+</footer>
+
+
+
+  </body>
+
+  <!-- Load Core and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.0/umd/popper.min.js" integrity="sha256-OH05DFHUWzr725HmuHo3pnuvUUn+TJuj8/Qz9xytFEw=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.17.0/js/mdb.min.js"  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<!-- Load Common JS -->
+<script src="/assets/js/common.js"></script>
+
+<!-- Code Syntax Highlighting -->
+<link rel="stylesheet" href="https://gitcdn.link/repo/jwarby/jekyll-pygments-themes/master/github.css" />
+
+
+<!-- Load KaTeX -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script src="/assets/js/katex.js"></script>
+
+
+
+<!-- Load Mansory & imagesLoaded -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" integrity="" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+<!-- Project Cards Layout -->
+<script type="text/javascript">
+  // Init Masonry
+  var $grid = $('.grid').masonry({
+    gutter: 10,
+    horizontalOrder: true,
+    itemSelector: '.grid-item',
+  });
+  // layout Masonry after each image loads
+  $grid.imagesLoaded().progress( function() {
+    $grid.masonry('layout');
+  });
+</script>
+
+
+
+
+
+
+
+</html>
