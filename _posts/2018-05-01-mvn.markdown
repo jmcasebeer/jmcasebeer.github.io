@@ -1,0 +1,8 @@
+---
+layout: page
+title: Multi-View Networks
+description: Audio classification with ad-hoc arrays. Train once and test on any array.
+img: /assets/img/mvn.png
+redirect: http://zhepeiw.com/2019/05/24/blog2.html
+date: 2018-05-01
+---
