@@ -29,19 +29,19 @@ We published an early version of these results in <d-cite key="casebeer2021auto"
 }
 ```
 
-- [Short Video]()
+- [Short Video](https://www.youtube.com/watch?v=o2J1SJdZH94)
 
 - [arXiv]()
 
 - [arXiv pdf]()
 
-- [GitHub repo]()
+- [GitHub repo](https://github.com/adobe-research/MetaAF)
 
 - [Demo page](/meta-af/demos)
 
 - Talks: Contact me if interested!
 
-We release code and model checkpoints using the `meta-af` python package developed for this work. For demos of the code, setup instructions, and more, check out the [GitHub repo](). To listen to model outputs, head to the [**demo page**](/meta-af/demos).
+We release code and model checkpoints using the `meta-af` python package developed for this work. For demos of the code, setup instructions, and more, check out the [GitHub repo](https://github.com/adobe-research/MetaAF). To listen to model outputs, head to the [**demo page**](/meta-af/demos).
 
 ---
 
