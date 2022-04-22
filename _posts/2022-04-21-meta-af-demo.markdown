@@ -6,16 +6,22 @@ description: Meta-Learning for Adaptive Filters
 date: 2022-04-21
 ---
 
-We release the inputs, targets, and results for the first five samples in the test set of each adaptive filter task for all models. These samples are all generated using the Meta-AF codebase in this [GitHub repo](). Please consult our [arXiv paper]() for any experimental configuration details as well as descriptions of our baselines.
+We release the inputs, targets, and results for five samples in the test set of each adaptive filter task for all models. These samples are all generated using the Meta-AF codebase in this [GitHub repo](). Please consult our [arXiv paper]() for any experimental configuration details as well as descriptions of our baselines.
 
 ### Acoustic Echo Cancellation
 <details><summary>Double-Talk</summary>
 
+  <center>
+  Magnitude STFT of the First Sample
+  <img src="/assets/img/meta-af/aec_double_talk.jpg" alt="drawing" width="100%"/>
+  </center>
+
+
   <table border="1" style="margin:1px auto; width:100%">
     <tr>
-      <td>Nearend</td>
-      <td>Farend</td>
-      <td>Nearend Speech</td>
+      <td>Near-end</td>
+      <td>Far-end</td>
+      <td>Near-end Speech</td>
       <td>Speex</td>
       <td>LMS</td>
       <td>RMSProp</td>
@@ -89,11 +95,16 @@ We release the inputs, targets, and results for the first five samples in the te
 
 <details><summary>Double-Talk with Path Change</summary>
 
+  <center>
+  Magnitude STFT of the First Sample
+  <img src="/assets/img/meta-af/aec_double_talk_path.jpg" alt="drawing" width="100%"/>
+  </center>
+
   <table border="1" style="margin:1px auto; width:100%">
     <tr>
-      <td>Nearend</td>
-      <td>Farend</td>
-      <td>Nearend Speech</td>
+      <td>Near-end</td>
+      <td>Far-end</td>
+      <td>Near-end Speech</td>
       <td>Speex</td>
       <td>LMS</td>
       <td>RMSProp</td>
@@ -167,11 +178,17 @@ We release the inputs, targets, and results for the first five samples in the te
 
 <details><summary>Double-Talk with Nonlinearities</summary>
 
+  <center>
+  Magnitude STFT of the First Sample
+  <img src="/assets/img/meta-af/aec_double_talk_nonlinear.jpg" alt="drawing" width="100%"/>
+  </center>
+
+
   <table border="1" style="margin:1px auto; width:100%">
     <tr>
-      <td>Nearend</td>
-      <td>Farend</td>
-      <td>Nearend Speech</td>
+      <td>Near-end</td>
+      <td>Far-end</td>
+      <td>Near-end Speech</td>
       <td>Speex</td>
       <td>LMS</td>
       <td>RMSProp</td>
@@ -246,6 +263,11 @@ We release the inputs, targets, and results for the first five samples in the te
 ### Equalization
 <details><summary>Unconstrained</summary>
 
+  <center>
+  Magnitude STFT of the First Sample
+  <img src="/assets/img/meta-af/eq_unconstrained.jpg" alt="drawing" width="100%"/>
+  </center>
+
   <table border="1" style="margin:1px auto; width:100%">
     <tr>
       <td>Target</td>
@@ -305,6 +327,11 @@ We release the inputs, targets, and results for the first five samples in the te
 </details>
 
 <details><summary>Constrained</summary>
+
+  <center>
+  Magnitude STFT of the First Sample
+  <img src="/assets/img/meta-af/eq_constrained.jpg" alt="drawing" width="100%"/>
+  </center>
 
   <table border="1" style="margin:1px auto; width:100%">
     <tr>
@@ -366,6 +393,11 @@ We release the inputs, targets, and results for the first five samples in the te
 
 ### Dereverberation
 <details><summary> One, Four, Eight Mic.</summary>
+
+  <center>
+  Magnitude STFT of the First Sample
+  <img src="/assets/img/meta-af/wpe_all.jpg" alt="drawing" width="100%"/>
+  </center>
 
   <table border="1" style="margin:1px auto; width:95%">
     <tr>
@@ -434,6 +466,11 @@ We release the inputs, targets, and results for the first five samples in the te
 ### Beamforming
 <details><summary>Diffuse Interferer</summary>
 
+  <center>
+  Magnitude STFT of the First Sample
+  <img src="/assets/img/meta-af/gsc_diffuse.jpg" alt="drawing" width="100%"/>
+  </center>
+
   <table border="1" style="margin:1px auto; width:95%">
     <tr>
       <td>Clean Speech</td>
@@ -493,6 +530,11 @@ We release the inputs, targets, and results for the first five samples in the te
 </details>
 
 <details><summary>Directional Interferer</summary>
+
+  <center>
+  Magnitude STFT of the First Sample
+  <img src="/assets/img/meta-af/gsc_directional.jpg" alt="drawing" width="100%"/>
+  </center>
 
   <table border="1" style="margin:1px auto; width:95%">
     <tr>
