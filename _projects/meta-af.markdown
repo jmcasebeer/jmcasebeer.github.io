@@ -7,7 +7,7 @@ date: 2022-04-21
 categories: research
 img: assets/img/meta-af/meta-af.jpg
 importance : 0
-bibliography: meta-af.bib
+bibliography: metaaf.bib
 ---
 # Overview
 Adaptive filtering algorithms are pervasive throughout modern society and have had a significant impact on a wide variety of domains including audio processing, telecommunications, biomedical sensing, astropyhysics and cosmology, seismology, and many more. Adaptive filters typically operate via specialized online, iterative optimization methods such as least-mean squares or recursive least squares and aim to process signals in unknown or nonstationary environments. Such algorithms, however, can be slow and laborious to develop, require domain expertise to create, and necessitate mathematical insight for improvement. In this work, we seek to go beyond the limits of human-derived adaptive filter algorithms and present a comprehensive framework for learning online, adaptive signal processing algorithms or update rules directly from data. To do so, we frame the development of adaptive filters as a meta-learning problem in the context of deep learning and use a form of self-supervision to learn online iterative update rules for adaptive filters. To demonstrate our approach, we focus on audio applications and systematically develop meta-learned adaptive filters for five canonical audio problems including system identification, acoustic echo cancellation, blind equalization, multi-channel dereverberation, and beamforming. For each application, we compare against common baselines and/or current state-of-the-art methods and show we can learn high-performing adaptive filters that operate in real-time and, in most cases, significantly out perform all past specially developed methods for each task using a single general-purpose configuration of our method.
@@ -17,16 +17,16 @@ Adaptive filtering algorithms are pervasive throughout modern society and have h
 </center>
 
 ---
-We published an early version of these results in <d-cite key="casebeer2021auto">.
 
-```{bibtex}
-@inproceedings{casebeer2021auto,
-  title={Auto-DSP: Learning to Optimize Acoustic Echo Cancellers},
-  author={Casebeer, Jonah and Bryan, Nicholas J. and Smaragdis, Paris},
-  booktitle={2021 IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA)},
-  pages={291--295},
-  year={2021},
-  organization={IEEE}
+For more details, please see:
+"[Meta-AF: Meta-Learning for Adaptive Filters](https://arxiv.org/abs/tbd)", [Jonah Casebeer](https://jmcasebeer.github.io), [Nicholas J. Bryan](https://ccrma.stanford.edu/~njb/), and [Paris Smaragdis](https://paris.cs.illinois.edu/), arXiv, 2022. If you use ideas or code from this work, pleace cite our paper:
+
+```BibTex
+@article{casebeer2022meta,
+  title={Meta-AF: Meta-Learning for Adaptive Filters},
+  author={Casebeer, Jonah and Bryan, Nicholas J. and Smaragdis, Paris},    
+  year={2022},
+  url={https://arxiv.org/abs/tbd}
 }
 ```
 
@@ -42,7 +42,8 @@ We published an early version of these results in <d-cite key="casebeer2021auto"
 
 - Talks: Contact me if interested!
 
-We release code and model checkpoints using the `meta-af` python package developed for this work. For demos of the code, setup instructions, and more, check out the [GitHub repo](https://github.com/adobe-research/MetaAF). To listen to model outputs, head to the [**demo page**](/metaaf/demos).
+We release code and model checkpoints using the `metaaf` python package developed for this work. For demos of the code, setup instructions, and more, check out the [GitHub repo](https://github.com/adobe-research/MetaAF). To listen to model outputs, head to the [**demo page**](/metaaf/demos). We published an early version of these results in <d-cite key="casebeer2021auto">.
+
 
 ---
 
