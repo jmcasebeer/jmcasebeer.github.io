@@ -19,7 +19,7 @@ Adaptive filtering algorithms are pervasive throughout modern society and have h
 ---
 
 For more details, please see:
-"[Meta-AF: Meta-Learning for Adaptive Filters](https://arxiv.org/abs/tbd)", [Jonah Casebeer](https://jmcasebeer.github.io), [Nicholas J. Bryan](https://ccrma.stanford.edu/~njb/), and [Paris Smaragdis](https://paris.cs.illinois.edu/), arXiv, 2022. If you use ideas or code from this work, pleace cite our paper:
+"[Meta-AF: Meta-Learning for Adaptive Filters](https://arxiv.org/abs/tbd)", [Jonah Casebeer](https://jmcasebeer.github.io), [Nicholas J. Bryan](https://ccrma.stanford.edu/~njb/), and [Paris Smaragdis](https://paris.cs.illinois.edu/), arXiv, 2022. If you use ideas or code from this work, pleace cite our paper <d-cite key="casebeer2022meta">:
 
 ```BibTex
 @article{casebeer2022meta,
