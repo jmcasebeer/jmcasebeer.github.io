@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Meta-AF Demos
-permalink: /meta-af/demos
+permalink: /metaaf/demos
 description: Meta-Learning for Adaptive Filters
 date: 2022-04-21
 ---

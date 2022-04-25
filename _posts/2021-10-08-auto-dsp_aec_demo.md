@@ -6,7 +6,7 @@ description: Demo page for Auto-DSP for acoustic echo cancellation.
 date: 2021-10-08
 ---
 
-### For the most recent version of this work, check out Meta-AF [here](/projects/meta-af).
+### For the most recent version of this work, check out Meta-AF [here](/projects/metaaf).
 ---
 
 

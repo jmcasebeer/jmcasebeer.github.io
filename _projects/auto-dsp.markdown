@@ -9,7 +9,7 @@ importance : 1
 bibliography: auto_dsp.bib
 ---
 
-### For the most recent version of this work, check out Meta-AF [here](/projects/meta-af).
+### For the most recent version of this work, check out Meta-AF [here](/projects/metaaf).
 ---
 
 In this on going line of work, we formulate the development of adaptive filtering algorithms as a meta-learning problem and learn to optimize adaptive filters. To do so, we frame adaptive filtering itself as a differentiable operator and train a learned optimizer from data, without external labels, using truncated backpropagation through time. By doing so, we replace hand-derived online update rules and create an automatic digital signal processing (Auto-DSP) approach that can be used for a variety of signal processing applications. To demonstrate our approach, we learn to optimize an Acoustic Echo Cancellation (AEC) task as shown in the figure below. We use the Microsoft AEC Challenge dataset to learn optimization update rules for a variety of common linear and nonlinear multidelayed block frequency domain filters. We compare our results to hand-engineered, grid-search-tuned block Normalized LMS (NLMS) and RMSprop optimizers, as well as the open-source Speex AEC. We published these results in <d-cite key="casebeer2021auto">.
