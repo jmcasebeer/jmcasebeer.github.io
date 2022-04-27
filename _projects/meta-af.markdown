@@ -19,22 +19,24 @@ Adaptive filtering algorithms are pervasive throughout modern society and have h
 ---
 
 For more details, please see:
-"[Meta-AF: Meta-Learning for Adaptive Filters](https://arxiv.org/abs/tbd)", [Jonah Casebeer](https://jmcasebeer.github.io), [Nicholas J. Bryan](https://ccrma.stanford.edu/~njb/), and [Paris Smaragdis](https://paris.cs.illinois.edu/), arXiv, 2022. If you use ideas or code from this work, pleace cite our paper <d-cite key="casebeer2022meta">:
+"[Meta-AF: Meta-Learning for Adaptive Filters](https://arxiv.org/abs/2204.11942)", [Jonah Casebeer](https://jmcasebeer.github.io), [Nicholas J. Bryan](https://ccrma.stanford.edu/~njb/), and [Paris Smaragdis](https://paris.cs.illinois.edu/), arXiv, 2022. If you use ideas or code from this work, pleace cite our paper <d-cite key="casebeer2022metaaf">:
 
 ```BibTex
-@article{casebeer2022meta,
-  title={Meta-AF: Meta-Learning for Adaptive Filters},
-  author={Casebeer, Jonah and Bryan, Nicholas J. and Smaragdis, Paris},    
-  year={2022},
-  url={https://arxiv.org/abs/tbd}
+@article{casebeer2022metaaf,
+      title={Meta-AF: Meta-Learning for Adaptive Filters},
+      author={Jonah Casebeer and Nicholas J. Bryan and Paris Smaragdis},
+      year={2022},
+      eprint={2204.11942},
+      archivePrefix={arXiv},
+      primaryClass={cs.SD}
 }
 ```
 
 - [Short Video](https://www.youtube.com/watch?v=incb1QNSvW8)
 
-- [arXiv]()
+- [arXiv](https://arxiv.org/abs/2204.11942)
 
-- [arXiv pdf]()
+- [arXiv pdf](https://arxiv.org/pdf/2204.11942.pdf)
 
 - [GitHub repo](https://github.com/adobe-research/MetaAF)
 
