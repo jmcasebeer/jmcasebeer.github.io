@@ -26,9 +26,8 @@ For more details, please see:
       title={Meta-AF: Meta-Learning for Adaptive Filters},
       author={Jonah Casebeer and Nicholas J. Bryan and Paris Smaragdis},
       year={2022},
-      eprint={2204.11942},
-      archivePrefix={arXiv},
-      primaryClass={cs.SD}
+      journal={arXiv preprint arXiv:2204.11942},
+      year={2022},
 }
 ```
 

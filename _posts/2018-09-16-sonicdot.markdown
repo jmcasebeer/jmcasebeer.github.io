@@ -3,6 +3,6 @@ layout: page
 title: Sonicdot
 description: A new approach to private audio based on echoes.
 img: /assets/img/two_zone.png
-redirect: https://swing-research.github.io/sonicdot/
 date: 2018-09-16
 ---
+Demo website [here](https://swing-research.github.io/sonicdot/)
