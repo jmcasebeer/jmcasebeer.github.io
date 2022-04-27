@@ -63,10 +63,10 @@ Here are some samples of the model in action!
   </tr>
   <tr>
     <td>5</td>
-		<td><audio controls style="width: 200px;"><source src="/assets/adfe/audio/dft/overlap_5.wav" /></audio></td>
-    <td><audio controls style="width: 200px;"><source src="/assets/adfe/audio/dft/female_5.wav" /></audio></td>
-    <td><audio controls style="width: 200px;"><source src="/assets/adfe/audio/tsep/female_5.wav" /></audio></td>
-    <td><audio controls style="width: 200px;"><source src="/assets/adfe/audio/ortho/female_5.wav" /></audio></td>
+		<td><audio controls style="width: 200px;"><source src="/assets/audio/adfe/dft/overlap_5.wav" /></audio></td>
+    <td><audio controls style="width: 200px;"><source src="/assets/audio/adfe/dft/female_5.wav" /></audio></td>
+    <td><audio controls style="width: 200px;"><source src="/assets/audio/adfe/tsep/female_5.wav" /></audio></td>
+    <td><audio controls style="width: 200px;"><source src="/assets/audio/adfe/ortho/female_5.wav" /></audio></td>
 
   </tr>
   <tr>
