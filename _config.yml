@@ -71,7 +71,7 @@ panelbear_analytics:  # panelbear analytics site ID
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: Research  # your blog must have a name for it to show up in the nav bar
+blog_name: Demos & Posts # your blog must have a name for it to show up in the nav bar
 blog_description: Demos or pages for my research.
 permalink: /research/:year/:title/
 
