@@ -31,7 +31,7 @@ For more details, please see:
 }
 ```
 
-- [Short Video](https://www.youtube.com/watch?v=incb1QNSvW8)
+- [Short video](https://www.youtube.com/watch?v=incb1QNSvW8)
 
 - [arXiv](https://arxiv.org/abs/2204.11942)
 
@@ -40,6 +40,8 @@ For more details, please see:
 - [GitHub repo](https://github.com/adobe-research/MetaAF)
 
 - [Demo page](/metaaf/demos)
+
+- [Twitter thread](https://twitter.com/CasebeerJonah/status/1519116249028046852)
 
 - Talks: Contact me if interested!
 
