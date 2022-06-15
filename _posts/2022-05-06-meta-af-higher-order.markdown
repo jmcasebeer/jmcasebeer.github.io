@@ -6,9 +6,9 @@ description: Meta-Learning for Adaptive Filters with Higher-Order Frequency Depe
 date: 2022-06-10
 ---
 
-This demo pages accompanies "Meta-Learning for Adaptive Filters with Higher-Order Frequency Dependencies", which is currently under review. We release model inputs and outputs for both the linear acoustic echo canceller(AEC) as well as the deep neural network noise suppressor(DNN-NS) post-processor. These results are for all models shown in figure 4 of the paper. When applicable, the top audio file is the output of the linear AEC and the bottom is the output of the DNN-NS.
+This demo pages accompanies "Meta-Learning for Adaptive Filters with Higher-Order Frequency Dependencies", which is currently under review. We release model inputs and outputs for both the linear acoustic echo canceller (AEC) as well as the deep neural network noise suppressor (DNN-NS) post-processor. These results are for all models shown in figure 4 of the paper. When applicable, the top audio file is the output of the linear AEC and the bottom is the output of the DNN-NS post filter. All files contain double-talk and may contain nonlinearities and near/far -end noise.
 
-
+**Demo Files**
 <table border="1" style="margin:1px auto; width:100%">
   <tr>
     <td>Near-end</td>
@@ -17,7 +17,7 @@ This demo pages accompanies "Meta-Learning for Adaptive Filters with Higher-Orde
     <td>NLMS</td>
     <td>RLS</td>
     <td>Kalman Filter</td>
-    <td>DNN-NS</td>
+    <td>Only DNN-NS</td>
     <td>Diag. Meta-AF</td>
     <td><b>Banded-9 Meta-AF</b></td>
     <td><b>Banded-3 Meta-AF</b></td>
