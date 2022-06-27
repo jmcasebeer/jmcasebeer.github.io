@@ -593,3 +593,6 @@ We release the inputs, targets, and results for five samples in the test set of 
     </tr>
   </table>
 </details>
+
+
+Note that these samples have been scaled to [-1,1] and saved as .mp3 files for playback. If you would like the raw files, please either follow the directions on the GitHub repository or contact me.
