@@ -10,7 +10,7 @@ importance : 0
 bibliography: metaaf.bib
 ---
 # Overview
-Adaptive filtering algorithms are pervasive throughout modern society and have had a significant impact on a wide variety of domains including audio processing, telecommunications, biomedical sensing, astropyhysics and cosmology, seismology, and many more. Adaptive filters typically operate via specialized online, iterative optimization methods such as least-mean squares or recursive least squares and aim to process signals in unknown or nonstationary environments. Such algorithms, however, can be slow and laborious to develop, require domain expertise to create, and necessitate mathematical insight for improvement. In this work, we seek to go beyond the limits of human-derived adaptive filter algorithms and present a comprehensive framework for learning online, adaptive signal processing algorithms or update rules directly from data. To do so, we frame the development of adaptive filters as a meta-learning problem in the context of deep learning and use a form of self-supervision to learn online iterative update rules for adaptive filters. To demonstrate our approach, we focus on audio applications and systematically develop meta-learned adaptive filters for five canonical audio problems including system identification, acoustic echo cancellation, blind equalization, multi-channel dereverberation, and beamforming. For each application, we compare against common baselines and/or current state-of-the-art methods and show we can learn high-performing adaptive filters that operate in real-time and, in most cases, significantly out perform all past specially developed methods for each task using a single general-purpose configuration of our method.
+Adaptive filtering algorithms are pervasive throughout modern society and have had a significant impact on a wide variety of domains including audio processing, telecommunications, biomedical sensing, astrophysics and cosmology, seismology, and many more. Adaptive filters typically operate via specialized online, iterative optimization methods such as least-mean squares or recursive least squares and aim to process signals in unknown or nonstationary environments. Such algorithms, however, can be slow and laborious to develop, require domain expertise to create, and necessitate mathematical insight for improvement. In this work, we seek to go beyond the limits of human-derived adaptive filter algorithms and present a comprehensive framework for learning online, adaptive signal processing algorithms or update rules directly from data. To do so, we frame the development of adaptive filters as a meta-learning problem in the context of deep learning and use a form of self-supervision to learn online iterative update rules for adaptive filters. To demonstrate our approach, we focus on audio applications and systematically develop meta-learned adaptive filters for five canonical audio problems including system identification, acoustic echo cancellation, blind equalization, multi-channel dereverberation, and beamforming. We compare our approach against common baselines and/or recent state-of-the-art methods. We show we can learn high-performing adaptive filters that operate in real-time and, in most cases, significantly outperform each method and task we compare against -- all using a single general-purpose configuration of our method.
 
 <center>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/incb1QNSvW8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -64,7 +64,7 @@ The goal of AEC is to remove the far-end echo from a near-end signal for voice c
 <img src="/assets/img/meta-af/aec_block.png" alt="drawing" width="50%"/>
 </center>
 
-Demos for double-talk, double-talk with a path change, and double-talk with nonlinearities on the [**demo page**](/metaaf/demos).
+Demos for a single universal model evaluated on single-talk, double-talk, double-talk with a path change, and double-talk with nonlinearities are at the [**demo page**](/metaaf/demos).
 
 ### Equalization
 In equalization,  the goal is to estimate the inverse of an unknown transfer function, while only observing input and outputs of the forward system, as shown below. This is common for loudspeaker tuning.
@@ -91,4 +91,4 @@ For the final task, we perform interference cancellation using the minimum varia
 <img src="/assets/img/meta-af/gsc_block.png" alt="drawing" width="50%"/>
 </center>
 
-Demos for diffuse and directional interferers on the [**demo page**](/metaaf/demos).
+Demos for a single universal model evaluated on diffuse and directional interferers are at the [**demo page**](/metaaf/demos).

@@ -6,7 +6,7 @@ description: Meta-Learning for Adaptive Filters with Higher-Order Frequency Depe
 date: 2022-06-10
 ---
 
-This demo pages accompanies "Meta-Learning for Adaptive Filters with Higher-Order Frequency Dependencies", which is currently under review. We release model inputs and outputs for both the linear acoustic echo canceller (AEC) as well as the deep neural network noise suppressor (DNN-NS) post-processor. These results are for all models shown in figure 4 of the paper. When applicable, the top audio file is the output of the linear AEC and the bottom is the output of the DNN-NS post filter. All files contain double-talk and may contain nonlinearities and near/far -end noise.
+This demo pages accompanies "Meta-Learning for Adaptive Filters with Higher-Order Frequency Dependencies", which was published at IWAENC. We release model inputs and outputs for both the linear acoustic echo canceller (AEC) as well as the deep neural network noise suppressor (DNN-NS) post-processor. These results are for all models shown in figure 4 of the paper. When applicable, the top audio file is the output of the linear AEC and the bottom is the output of the DNN-NS post filter. All files contain double-talk and may contain nonlinearities and near/far -end noise.
 
 **Demo Files**
 <table border="1" style="margin:1px auto; width:100%">
@@ -159,4 +159,4 @@ This demo pages accompanies "Meta-Learning for Adaptive Filters with Higher-Orde
 
 
 
-These samples are all generated using the Meta-AF codebase in this [GitHub repo](https://github.com/adobe-research/MetaAF). The code will be released as a pull-request to the existing [Meta-AF repository](https://github.com/adobe-research/MetaAF). You may also be interested in checking out the initial Meta-AF [video](https://www.youtube.com/watch?v=incb1QNSvW8), [pre-print](https://arxiv.org/abs/2204.11942), [code](https://github.com/adobe-research/MetaAF), [demos](/metaaf/demos), and [website](/projects/metaaf).
+These samples are all generated using the Meta-AF codebase in this [GitHub repo](https://github.com/adobe-research/MetaAF). The code and checkpoints have been released as an add-on to the [Meta-AF repository](https://github.com/adobe-research/MetaAF). You may also be interested in checking out the initial Meta-AF [video](https://www.youtube.com/watch?v=incb1QNSvW8), [pre-print](https://arxiv.org/abs/2204.11942), [code](https://github.com/adobe-research/MetaAF), [demos](/metaaf/demos), and [website](/projects/metaaf).
