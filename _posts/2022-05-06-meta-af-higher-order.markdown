@@ -27,6 +27,8 @@ For more details, please see:
 
 - [GitHub repo](https://github.com/adobe-research/MetaAF)
 
+- [Twitter Thread](https://twitter.com/CasebeerJonah/status/1573058398673072128)
+
 We release code and model checkpoints using the `metaaf` python package developed for this work. For demos of the code, setup instructions, and more, check out the [GitHub repo](https://github.com/adobe-research/MetaAF). To listen to model outputs, keep scrolling.
 
 
