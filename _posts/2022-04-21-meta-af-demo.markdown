@@ -27,9 +27,9 @@ We release the inputs, targets, and results for five samples in the test set of 
       <td>LMS</td>
       <td>RMSProp</td>
       <td>NLMS</td>
-      <td>RLS</td>
-      <td>Kalman Filter</td>
-      <td><b>Meta-AF</b></td>
+      <td>BD-RLS</td>
+      <td>D-KF</td>
+      <td><b>Meta-AEC</b></td>
     </tr>
     <tr>
       <td><audio controls style="width: 100px;"><source src="/assets/audio/meta-af/aec_single_talk_raw/0/d.mp3" /></audio></td>
@@ -111,9 +111,9 @@ We release the inputs, targets, and results for five samples in the test set of 
       <td>LMS</td>
       <td>RMSProp</td>
       <td>NLMS</td>
-      <td>RLS</td>
-      <td>Kalman Filter</td>
-      <td><b>Meta-AF</b></td>
+      <td>BD-RLS</td>
+      <td>D-KF</td>
+      <td><b>Meta-AEC</b></td>
     </tr>
     <tr>
       <td><audio controls style="width: 100px;"><source src="/assets/audio/meta-af/aec_double_talk_raw/0/d.mp3" /></audio></td>
@@ -194,9 +194,9 @@ We release the inputs, targets, and results for five samples in the test set of 
       <td>LMS</td>
       <td>RMSProp</td>
       <td>NLMS</td>
-      <td>RLS</td>
-      <td>Kalman Filter</td>
-      <td><b>Meta-AF</b></td>
+      <td>BD-RLS</td>
+      <td>D-KF</td>
+      <td><b>Meta-AEC</b></td>
     </tr>
     <tr>
       <td><audio controls style="width: 100px;"><source src="/assets/audio/meta-af/aec_double_talk_path/0/d.mp3" /></audio></td>
@@ -278,9 +278,9 @@ We release the inputs, targets, and results for five samples in the test set of 
       <td>LMS</td>
       <td>RMSProp</td>
       <td>NLMS</td>
-      <td>RLS</td>
-      <td>Kalman Filter</td>
-      <td><b>Meta-AF</b></td>
+      <td>BD-RLS</td>
+      <td>D-KF</td>
+      <td><b>Meta-AEC</b></td>
     </tr>
     <tr>
     <td><audio controls style="width: 100px;"><source src="/assets/audio/meta-af/aec_double_talk_nonlinear/0/d.mp3" /></audio></td>
@@ -360,8 +360,8 @@ We release the inputs, targets, and results for five samples in the test set of 
       <td>LMS</td>
       <td>RMSProp</td>
       <td>NLMS</td>
-      <td>RLS</td>
-      <td><b>Meta-AF</b></td>
+      <td>D-RLS</td>
+      <td><b>Meta-EQ</b></td>
     </tr>
     <tr>
     <td><audio controls style="width: 100px;"><source src="/assets/audio/meta-af/eq_unconstrained/0/d.mp3" /></audio></td>
@@ -425,8 +425,8 @@ We release the inputs, targets, and results for five samples in the test set of 
       <td>LMS</td>
       <td>RMSProp</td>
       <td>NLMS</td>
-      <td>RLS</td>
-      <td><b>Meta-AF</b></td>
+      <td>D-RLS</td>
+      <td><b>Meta-EQ</b></td>
     </tr>
     <tr>
     <td><audio controls style="width: 100px;"><source src="/assets/audio/meta-af/eq_constrained/0/d.mp3" /></audio></td>
@@ -490,11 +490,11 @@ We release the inputs, targets, and results for five samples in the test set of 
       <td>Reverberant</td>
       <td>Anechoic</td>
       <td>NARA 1 Mic.</td>
-      <td><b>Meta-AF 1 Mic.</b></td>
+      <td><b>Meta-WPE 1 Mic.</b></td>
       <td>NARA 4 Mic.</td>
-      <td><b>Meta-AF 4 Mic.</b></td>
+      <td><b>Meta-WPE 4 Mic.</b></td>
       <td>NARA 8 Mic.</td>
-      <td><b>Meta-AF 8 Mic.</b></td>
+      <td><b>Meta-WPE 8 Mic.</b></td>
     </tr>
     <tr>
       <td><audio controls style="width: 100px;"><source src="/assets/audio/meta-af/wpe_all/0/d.mp3" /></audio></td>
@@ -564,8 +564,8 @@ We release the inputs, targets, and results for five samples in the test set of 
       <td>LMS</td>
       <td>RMSProp</td>
       <td>NLMS</td>
-      <td>RLS</td>
-      <td><b>Meta-AF</b></td>
+      <td>BD-RLS</td>
+      <td><b>Meta-GSC</b></td>
     </tr>
     <tr>
     <td><audio controls style="width: 100px;"><source src="/assets/audio/meta-af/gsc_diffuse/0/s.mp3" /></audio></td>
@@ -629,8 +629,8 @@ We release the inputs, targets, and results for five samples in the test set of 
       <td>LMS</td>
       <td>RMSProp</td>
       <td>NLMS</td>
-      <td>RLS</td>
-      <td><b>Meta-AF</b></td>
+      <td>BD-RLS</td>
+      <td><b>Meta-GSC</b></td>
     </tr>
     <tr>
       <td><audio controls style="width: 100px;"><source src="/assets/audio/meta-af/gsc_directional/0/s.mp3" /></audio></td>
