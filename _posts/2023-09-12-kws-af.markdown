@@ -1,0 +1,8 @@
+---
+layout: page
+title: Classification Trained AFs
+permalink: /metaaf/kws-af
+description: Meta-AF Echo Cancellation for Improved Keyword Spotting
+date: 2023-09-12
+---
+Code coming soon!

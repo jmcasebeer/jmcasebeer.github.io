@@ -1,0 +1,8 @@
+---
+layout: page
+title: Supervised Multi-Step AFs
+permalink: /metaaf/sms-af
+description: Scaling Up Adaptive Filter Optimizers
+date: 2023-09-12
+---
+Code and demos coming soon!
