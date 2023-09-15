@@ -5,4 +5,155 @@ permalink: /metaaf/sms-af
 description: Scaling Up Adaptive Filter Optimizers
 date: 2023-09-12
 ---
-Code and demos coming soon!
+# Overview
+We introduce a new online adaptive filtering method called supervised multi-step adaptive filters (SMS-AF). Our method uses neural networks to control or optimize linear multi-delay or multi-channel frequency-domain filters and can flexibly scale-up performance at the cost of increased compute -- a property rarely addressed in the AF literature, but critical for many applications. To do so, we extend recent work with a series of improvements including feature pruning, a supervised loss, and multiple optimization steps per time-frame. These improvements work together in a cohesive manner to unlock scaling. Furthermore, we show how our method relates to Kalman filtering and meta-adaptive filtering, making it seamlessly applicable to a diverse set of AF tasks. We evaluate our method on acoustic echo cancellation (AEC) and multi-channel speech enhancement tasks and compare against several baselines on standard synthetic and real-world datasets. Results show our method performance scales with inference cost and model capacity, yields multi-dB performance gains for both tasks, and is real-time capable on a single CPU core.
+---
+We will release code and model checkpoints using the `metaaf` python package developed for this work. For demos of the code, setup instructions, and more, check out the [GitHub repo](https://github.com/adobe-research/MetaAF). To listen to model outputs, keep scrolling.
+---
+We release model inputs and outputs for both the acoustic echo cancellation (AEC) and generalized sidelobe canceller (GSC) experiments.
+
+**VOLUME WARNING -- SOME FILES ARE LOUD**
+
+**AEC Demo Files**
+<table border="1" style="margin:1px auto; width:100%">
+  <tr>
+    <td>Near-end</td>
+    <td>Near-end Speech</td>
+    <td>S-U-P</td>
+    <td>M-U-P</td>
+    <td>L-U-P</td>
+    <td>S-S-P</td>
+    <td>M-S-P</td>
+    <td>L-S-P</td>
+    <td>S-S-PU</td>
+    <td>M-S-PU</td>
+    <td>L-S-PU</td>
+    <td>S-S-PUx2</td>
+    <td>M-S-PUx2</td>
+    <td>L-S-PUx2</td>
+    <td>NKF</td>
+  </tr>
+
+  <tr>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_1_d.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_1_s.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_1_out_uef_self_16h_ola_noaw_prior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_1_out_uef_self_32h_ola_noaw_prior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_1_out_uef_self_64h_ola_noaw_prior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_1_out_uef_echo_16h_ola_noaw_prior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_1_out_uef_echo_32h_ola_noaw_prior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_1_out_uef_echo_64h_ola_noaw_prior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_1_out_uef_echo_16h_ola_noaw_posterior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_1_out_uef_echo_32h_ola_noaw_posterior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_1_out_uef_echo_64h_ola_noaw_posterior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_1_out_uef_echo_16h_ola_noaw_2posterior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_1_out_uef_echo_32h_ola_noaw_2posterior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_1_out_uef_echo_64h_ola_noaw_2posterior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_1_out_nkf.wav" /></audio></td>
+  </tr>
+  <tr>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_10_d.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_10_s.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_10_out_uef_self_16h_ola_noaw_prior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_10_out_uef_self_32h_ola_noaw_prior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_10_out_uef_self_64h_ola_noaw_prior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_10_out_uef_echo_16h_ola_noaw_prior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_10_out_uef_echo_32h_ola_noaw_prior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_10_out_uef_echo_64h_ola_noaw_prior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_10_out_uef_echo_16h_ola_noaw_posterior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_10_out_uef_echo_32h_ola_noaw_posterior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_10_out_uef_echo_64h_ola_noaw_posterior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_10_out_uef_echo_16h_ola_noaw_2posterior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_10_out_uef_echo_32h_ola_noaw_2posterior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_10_out_uef_echo_64h_ola_noaw_2posterior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_10_out_nkf.wav" /></audio></td>
+  </tr>
+  <tr>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_200_d.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_200_s.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_200_out_uef_self_16h_ola_noaw_prior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_200_out_uef_self_32h_ola_noaw_prior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_200_out_uef_self_64h_ola_noaw_prior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_200_out_uef_echo_16h_ola_noaw_prior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_200_out_uef_echo_32h_ola_noaw_prior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_200_out_uef_echo_64h_ola_noaw_prior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_200_out_uef_echo_16h_ola_noaw_posterior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_200_out_uef_echo_32h_ola_noaw_posterior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_200_out_uef_echo_64h_ola_noaw_posterior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_200_out_uef_echo_16h_ola_noaw_2posterior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_200_out_uef_echo_32h_ola_noaw_2posterior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_200_out_uef_echo_64h_ola_noaw_2posterior.wav" /></audio></td>
+  <td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/aec_200_out_nkf.wav" /></audio></td>
+  </tr>  
+</table>
+
+
+**GSC Demo Files**
+<table border="1" style="margin:1px auto; width:100%">
+  <tr>
+    <td>Mixture</td>
+    <td>Clean Speech</td>
+    <td>S-U-P</td>
+    <td>M-U-P</td>
+    <td>L-U-P</td>
+    <td>S-S-P</td>
+    <td>M-S-P</td>
+    <td>L-S-P</td>
+    <td>S-S-PU</td>
+    <td>M-S-PU</td>
+    <td>L-S-PU</td>
+    <td>S-S-PUx2</td>
+    <td>M-S-PUx2</td>
+    <td>L-S-PUx2</td>
+</tr>
+
+<tr>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_100_m.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_100_s.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_100_out_gsc_self_16.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_100_out_gsc_self.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_100_out_gsc_self_64.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_100_out_gsc_sisdr_val_sisdr_16.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_100_out_gsc_sisdr_val_sisdr.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_100_out_gsc_sisdr_val_sisdr_64.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_100_out_gsc_sisdr_val_sisdr_posterior_16.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_100_out_gsc_sisdr_val_sisdr_posterior.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_100_out_gsc_sisdr_val_sisdr_posterior_64.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_100_out_gsc_sisdr_val_sisdr_2iter_posterior_16.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_100_out_gsc_sisdr_val_sisdr_2iter_posterior.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_100_out_gsc_sisdr_val_sisdr_2iter_posterior.wav" /></audio></td>
+</tr>
+<tr>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_250_m.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_250_s.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_250_out_gsc_self_16.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_250_out_gsc_self.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_250_out_gsc_self_64.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_250_out_gsc_sisdr_val_sisdr_16.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_250_out_gsc_sisdr_val_sisdr.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_250_out_gsc_sisdr_val_sisdr_64.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_250_out_gsc_sisdr_val_sisdr_posterior_16.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_250_out_gsc_sisdr_val_sisdr_posterior.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_250_out_gsc_sisdr_val_sisdr_posterior_64.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_250_out_gsc_sisdr_val_sisdr_2iter_posterior_16.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_250_out_gsc_sisdr_val_sisdr_2iter_posterior.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_250_out_gsc_sisdr_val_sisdr_2iter_posterior.wav" /></audio></td>
+</tr>
+<tr>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_1046_m.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_1046_s.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_1046_out_gsc_self_16.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_1046_out_gsc_self.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_1046_out_gsc_self_64.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_1046_out_gsc_sisdr_val_sisdr_16.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_1046_out_gsc_sisdr_val_sisdr.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_1046_out_gsc_sisdr_val_sisdr_64.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_1046_out_gsc_sisdr_val_sisdr_posterior_16.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_1046_out_gsc_sisdr_val_sisdr_posterior.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_1046_out_gsc_sisdr_val_sisdr_posterior_64.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_1046_out_gsc_sisdr_val_sisdr_2iter_posterior_16.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_1046_out_gsc_sisdr_val_sisdr_2iter_posterior.wav" /></audio></td>
+<td><audio controls style="width: 100px;"><source src="/assets/audio/sms-af/gsc_1046_out_gsc_sisdr_val_sisdr_2iter_posterior.wav" /></audio></td>
+</tr>
+
+</table>
