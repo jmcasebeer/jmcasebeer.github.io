@@ -10,7 +10,7 @@ We introduce a new online adaptive filtering method called supervised multi-step
 
 ---
 
-We will release code and model checkpoints using the `metaaf` python package developed for this work. For demos of the code, setup instructions, and more, check out the [GitHub repo](https://github.com/adobe-research/MetaAF). To listen to model outputs, keep scrolling.
+We have released code and will release model checkpoints using the `metaaf` python package developed for this work. For demos of the code, setup instructions, and more, check out the [GitHub repo](https://github.com/adobe-research/MetaAF/tree/ct-meta-af). To listen to model outputs, keep scrolling.
 
 ---
 

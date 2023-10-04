@@ -10,4 +10,4 @@ Adaptive filters (AFs) are vital for enhancing the performance of downstream tas
 
 ---
 
-We will release code and model checkpoints using the `metaaf` python package developed for this work. For demos of the code, setup instructions, and more, check out the [GitHub repo](https://github.com/adobe-research/MetaAF).
+We have released code and will release model checkpoints using the `metaaf` python package developed for this work. For demos of the code, setup instructions, and more, check out the new branch in our [GitHub repo](https://github.com/adobe-research/MetaAF/tree/ct-meta-af).
