@@ -7,8 +7,13 @@ nav: true
 <p align="center">
   <strong>Employment</strong>
 </p>
+<img src="/assets/img/experience/adobe.png" alt="drawing" width="12%" align="left" style="padding-right: 3%"/>
+**Research Scientist**, Fall 2023 - Present
+
+Audio Research group at Adobe research.
 
 
+---
 <img src="/assets/img/experience/frl.png" alt="drawing" width="12%" align="left" style="padding-right: 3%"/>
 **Research Intern**, Summer 2022
 
@@ -62,7 +67,7 @@ Managed by [Amar Das](https://scholar.google.com/citations?hl=en&user=wujnpI0AAA
 </p>
 
 <img src="/assets/img/experience/uiuc.png" alt="drawing" width="12%" align="left" style="padding-right: 3%"/>
-**Ph.D., Computer Science**; UIUC; 2019-2023 (expected)
+**Ph.D., Computer Science**, UIUC, 2019 - 2023
 
 Advised by [Paris Smaragdis](http://paris.cs.illinois.edu/){:target="\_blank"} in the Computational Audio Lab at the University of Illinois at Urbana-Champaign. Research focus on machine learning and signal processing.
 
@@ -71,7 +76,7 @@ Selected Coursework: Computational Inference, Machine Learning for Signal Proces
 
 ---
 <img src="/assets/img/experience/uiuc.png" alt="drawing" width="12%" align="left" style="padding-right: 3%"/>
-**BS, Statistics and Computer Science**; UIUC; 2016-2019
+**BS, Statistics and Computer Science**, UIUC, 2016 - 2019
 
 Graduated a James Scholar with Highest Distinction and worked with [Paris Smaragdis](http://paris.cs.illinois.edu/){:target="\_blank"} and [Ivan Dokmanic](http://dokmanic.ece.illinois.edu/){:target="\_blank"} at the University of Illinois at Urbana-Champaign.
 
