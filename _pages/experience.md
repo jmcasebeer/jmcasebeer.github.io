@@ -69,7 +69,7 @@ Managed by [Amar Das](https://scholar.google.com/citations?hl=en&user=wujnpI0AAA
 <img src="/assets/img/experience/uiuc.png" alt="drawing" width="12%" align="left" style="padding-right: 3%"/>
 **Ph.D., Computer Science**, UIUC, 2019 - 2023
 
-Advised by [Paris Smaragdis](http://paris.cs.illinois.edu/){:target="\_blank"} in the Computational Audio Lab at the University of Illinois at Urbana-Champaign. Research focus on machine learning and signal processing.
+Advised by [Paris Smaragdis](http://paris.cs.illinois.edu/){:target="\_blank"} in the Computational Audio Lab at the University of Illinois at Urbana-Champaign. Research focus on machine learning and signal processing. Thesis [here](https://www.ideals.illinois.edu/items/129160).
 
 Selected Coursework: Computational Inference, Machine Learning for Signal Processing, Graduate DSP, Vector Space Signal Processing, Random Processes, Approximate & Probabilistic Computing, Probabilistic Graphical Models, Computer Vision.
 
