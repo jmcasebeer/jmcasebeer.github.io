@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <meta http-equiv="refresh" content="3; url=https://jmcasebeer.github.io/" />
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +10,7 @@
   Jonah Casebeer
 
 
-  | Page not found
+  | End-to-End Models
 
 </title>
 <meta name="description" content="">
@@ -37,11 +35,53 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
 
 <link rel="stylesheet" href="/assets/css/main.css">
-<link rel="canonical" href="/404.html">
+<link rel="canonical" href="/projects/end_to_end/">
 
 
 
+    
+<!-- MathJax -->
+<script type="text/javascript">
+  window.MathJax = {
+    tex: {
+      tags: 'ams'
+    }
+  };
+</script>
+<script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+
+    <script src="/assets/js/distillpub/template.v2.js"></script>
+    <script src="/assets/js/distillpub/transforms.v2.js"></script>
+    <script src="/assets/js/distillpub/overrides.js"></script>
+    
   </head>
+
+  <d-front-matter>
+    <script async type="text/json">{
+      "title": "End-to-End Models",
+      "description": "Training models end-to-end",
+      "published": "November 9, 2021",
+      "authors": [
+        
+      ],
+      "katex": {
+        "delimiters": [
+          {
+            "left": "$",
+            "right": "$",
+            "display": false
+          },
+          {
+            "left": "$$",
+            "right": "$$",
+            "display": true
+          }
+        ]
+      }
+    }</script>
+  </d-front-matter>
 
   <body class="fixed-top-nav ">
 
@@ -164,20 +204,32 @@
 
     <!-- Content -->
 
-    <div class="container mt-5">
-      <div class="post">
+    <div class="post distill">
 
-  <header class="post-header">
-    <h1 class="post-title">Page not found</h1>
-    <p class="post-description">Looks like there has been a mistake. Nothing exists here.</p>
-  </header>
+      <d-title>
+        <h1>End-to-End Models</h1>
+        <p>Training models end-to-end</p>
+      </d-title>
 
-  <article>
-    <p>You will be redirected to the main page within 3 seconds. If not redirected, please click <a href="https://jmcasebeer.github.io/">here</a>.</p>
+      <d-byline></d-byline>
 
-  </article>
+      <d-article>
+        <p>In this line of research, we were interested in constructing audio models which operated on raw waveforms. The working hypothesis was that we could overcome difficulties of doing audio processing in the Fourier domain by learning a custom domain.</p>
 
-</div>
+<p>In initial work, lead by Shrikant Venkataramani <d-cite key="venkataramani2017adaptive"></d-cite>-<d-cite key="venkataramani2018end"></d-cite>, we tackled this problem for source separation. We reinterpreted the short-time Fourier transform as a convolutional layer where the convolutional weights represented the DFT basis. Our perspective was that we could make this convolutional layer trainable and learn a custom “DFT” for speech on speech source separation. We realized that we could leverage this learned transform to do things like directly optimize SDR. You can find that work and some audio demos <a href="blog/2017/adfe/">here</a>.</p>
+
+<p>This approach lead to variety of exciting results and was significantly improved thanks to the development of better network architectures (Conv TASNet, U-Net, etc), use of better training schemes (Permutation Invariant Training), and more. This work also revealed some interesting connections to more classic work on NMF. This line of NMF based research culminated in Shrikant’s <a href="https://www.ideals.illinois.edu/handle/2142/108451" target="_blank" rel="noopener noreferrer">thesis</a> where he explored a variety of interesting processing concepts.</p>
+
+<p>Later on, with Umut Isik, Shrikant and I explored some more efficient end-to-end formulations by reinterpreting the convolutional weights as a sparse factorization of the DFT. The intuition was that the FFT could be interpreted as a sparse factorization of the DFT. When implemented correctly, multiplying by this sparse factorization yields the well known \(O(n \log(n))\) runtime. We realized that this stack of matrices could be made learnable – allowing us to learn fast transforms! We demonstrated this approach on speech enhancement and focused on very small models <d-cite key="casebeer2020efficient"></d-cite>.</p>
+
+<p>I revisited end-to-end learning with Umut later on. Here, we were again interested in speech enhancement but we wanted to do so with discrete latent space models. Our idea was that you could both enhance speech and compress it at the same time! This work was inspired by VQ-VAE and lead to an interesting kind of model which we called a compressor-enhancer <d-cite key="casebeer2021enhancing"></d-cite>. A neat aspect of this work was that the compression was free in that it was simply a byproduct of our network architecture.</p>
+
+      </d-article>
+
+      <d-appendix>
+        <d-footnote-list></d-footnote-list>
+        <d-citation-list></d-citation-list>
+      </d-appendix>
 
     </div>
 
@@ -197,49 +249,7 @@
 
   </body>
 
-  <!-- jQuery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-
-  <!-- Bootsrap & MDB scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js" integrity="sha512-eUQ9hGdLjBjY3F41CScH3UX+4JDSI9zXeroz7hJ+RteoCaY+GP/LDoM8AO+Pt+DRFw3nXqsjh9Zsts8hnYv8/A==" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" integrity="sha512-Mug9KHKmroQFMLm93zGrjhibM2z2Obg9l6qFG2qKjXEXkMp/VDkI4uju9m4QKPjWSwQ6O2qzZEnJDEeCw0Blcw==" crossorigin="anonymous"></script>
-
-  
-<!-- Mansory & imagesLoaded -->
-<script defer src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script defer src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-<script defer src="/assets/js/mansory.js" type="text/javascript"></script>
-
-
-  
-
-
-<!-- Medium Zoom JS -->
-<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
-<script src="/assets/js/zoom.js"></script>
-
-
-<!-- Load Common JS -->
-<script src="/assets/js/common.js"></script>
-
-  
-<!-- MathJax -->
-<script type="text/javascript">
-  window.MathJax = {
-    tex: {
-      tags: 'ams'
-    }
-  };
-</script>
-<script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
-<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-
-
-  
-
-
-
-
+  <d-bibliography src="/assets/bibliography/end_to_end.bib">
+  </d-bibliography>
 
 </html>

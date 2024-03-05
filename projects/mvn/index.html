@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <meta http-equiv="refresh" content="3; url=https://jmcasebeer.github.io/" />
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +10,7 @@
   Jonah Casebeer
 
 
-  | Page not found
+  | Multi-Vew Models
 
 </title>
 <meta name="description" content="">
@@ -37,11 +35,53 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
 
 <link rel="stylesheet" href="/assets/css/main.css">
-<link rel="canonical" href="/404.html">
+<link rel="canonical" href="/projects/mvn/">
 
 
 
+    
+<!-- MathJax -->
+<script type="text/javascript">
+  window.MathJax = {
+    tex: {
+      tags: 'ams'
+    }
+  };
+</script>
+<script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+
+    <script src="/assets/js/distillpub/template.v2.js"></script>
+    <script src="/assets/js/distillpub/transforms.v2.js"></script>
+    <script src="/assets/js/distillpub/overrides.js"></script>
+    
   </head>
+
+  <d-front-matter>
+    <script async type="text/json">{
+      "title": "Multi-Vew Models",
+      "description": "Models that can scale in interesting ways",
+      "published": "August 10, 2021",
+      "authors": [
+        
+      ],
+      "katex": {
+        "delimiters": [
+          {
+            "left": "$",
+            "right": "$",
+            "display": false
+          },
+          {
+            "left": "$$",
+            "right": "$$",
+            "display": true
+          }
+        ]
+      }
+    }</script>
+  </d-front-matter>
 
   <body class="fixed-top-nav ">
 
@@ -164,20 +204,30 @@
 
     <!-- Content -->
 
-    <div class="container mt-5">
-      <div class="post">
+    <div class="post distill">
 
-  <header class="post-header">
-    <h1 class="post-title">Page not found</h1>
-    <p class="post-description">Looks like there has been a mistake. Nothing exists here.</p>
-  </header>
+      <d-title>
+        <h1>Multi-Vew Models</h1>
+        <p>Models that can scale in interesting ways</p>
+      </d-title>
 
-  <article>
-    <p>You will be redirected to the main page within 3 seconds. If not redirected, please click <a href="https://jmcasebeer.github.io/">here</a>.</p>
+      <d-byline></d-byline>
 
-  </article>
+      <d-article>
+        <p>Multi-View Models were my introduction to university research. I did most of this work when I was a sophomore and junior at UIUC working with Paris Smaragdis and other students in his lab.</p>
 
-</div>
+<p>Multi-View models were motivated by the difficulties of deploying audio models on devices with different form factors, numbers of microphones, and available compute. We were looking to construct a model that could be trained on data from one kind of device but generalize to a whole host of other devices.</p>
+
+<p>The first problem we tackled was dealing with different numbers of microphones. In our first two papers we constructed Multi-View models that were trained on a fixed number of microphones <d-cite key="casebeer2018multi"></d-cite>-<d-cite key="casebeer2019multi"></d-cite>. Then, at test time, we ran them on a different number of microphones. We ended up discovering that Multi-View models could get better performance at test time when provided with more microphones. This was a neat result since we never explicitly trained the models to leverage additional microphones. We checked that this worked on both simple speech enhancement and voice activity detection tasks. A small writeup for that voice-activity detection task is <a href="http://zhepeiw.com/2019/05/24/blog2.html" target="_blank" rel="noopener noreferrer">here</a>.</p>
+
+<p>Having discovered some initial solutions for microphone scalability, we moved on to compute scalability. The goal here was to make models that could adapt their test-time computational or communication requirements. We did this by training models which modulated the number of inputs consumed before producing an output. We were able to get this working for multi-channel speech enhancement where our Multi-View model streamed audio from a time-varying number of microphones <d-cite key="casebeer2020communication"></d-cite>. Later on, we generalized this idea to single channel classification where the Multi-View model adaptively processed a time-varying number of frequency bins <d-cite key="wang2021sound">. A writeup for the speech enhancement task is [here](projects/camse).</d-cite></p>
+
+      </d-article>
+
+      <d-appendix>
+        <d-footnote-list></d-footnote-list>
+        <d-citation-list></d-citation-list>
+      </d-appendix>
 
     </div>
 
@@ -197,49 +247,7 @@
 
   </body>
 
-  <!-- jQuery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-
-  <!-- Bootsrap & MDB scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js" integrity="sha512-eUQ9hGdLjBjY3F41CScH3UX+4JDSI9zXeroz7hJ+RteoCaY+GP/LDoM8AO+Pt+DRFw3nXqsjh9Zsts8hnYv8/A==" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" integrity="sha512-Mug9KHKmroQFMLm93zGrjhibM2z2Obg9l6qFG2qKjXEXkMp/VDkI4uju9m4QKPjWSwQ6O2qzZEnJDEeCw0Blcw==" crossorigin="anonymous"></script>
-
-  
-<!-- Mansory & imagesLoaded -->
-<script defer src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script defer src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-<script defer src="/assets/js/mansory.js" type="text/javascript"></script>
-
-
-  
-
-
-<!-- Medium Zoom JS -->
-<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
-<script src="/assets/js/zoom.js"></script>
-
-
-<!-- Load Common JS -->
-<script src="/assets/js/common.js"></script>
-
-  
-<!-- MathJax -->
-<script type="text/javascript">
-  window.MathJax = {
-    tex: {
-      tags: 'ams'
-    }
-  };
-</script>
-<script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
-<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-
-
-  
-
-
-
-
+  <d-bibliography src="/assets/bibliography/mvn.bib">
+  </d-bibliography>
 
 </html>

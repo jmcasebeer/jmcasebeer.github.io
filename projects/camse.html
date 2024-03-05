@@ -12,7 +12,7 @@
   Jonah Casebeer
 
 
-  | demos & posts
+  | Cost Aware Speech Enhancement
 
 </title>
 <meta name="description" content="">
@@ -37,7 +37,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
 
 <link rel="stylesheet" href="/assets/css/main.css">
-<link rel="canonical" href="/blog/">
+<link rel="canonical" href="/projects/camse">
 
 
 
@@ -111,8 +111,6 @@
           
           
           
-          
-          
           <li class="nav-item ">
               <a class="nav-link" href="/experience/">
                 experience
@@ -147,10 +145,10 @@
           
           
           <!-- Blog -->
-          <li class="nav-item active">
+          <li class="nav-item ">
             <a class="nav-link" href="/blog/">
               <!-- changed from blog -->
-              demos & posts
+              demos &amp; posts
               
             </a>
           </li>
@@ -169,112 +167,89 @@
     <div class="container mt-5">
       <div class="post">
 
-  <div class="header-bar">
-    <h1>Demos & Posts</h1>
-    <h2>Demos or pages for my research.</h2>
-  </div>
+  <header class="post-header">
+    <h1 class="post-title">Cost Aware Speech Enhancement</h1>
+    <p class="post-description">Train a model that learns how many microphones to look at before producing an output.</p>
+  </header>
 
+  <article>
+    <p>In this paper, we present a method for jointly-learning a microphone selection mechanism and a speech enhancement network for multi-channel speech enhancement with an ad-hoc microphone array. The attention-based microphone selection mechanism is trained to reduce communication-costs through a penalty term which represents a task-performance/ communication-cost trade-off. While working within the trade-off, our method can intelligently stream from more microphones in lower SNR scenes and fewer microphones in higher SNR scenes. We evaluate the model in complex echoic acoustic scenes with moving sources and show that it matches the performance of models that stream from a fixed number of microphones while reducing communication costs.</p>
 
-  <ul class="post-list">
-    
+<center>
+<img src="/assets/img/camse/camse.png" alt="drawing" width="75%">
+</center>
 
-    
-    
-    
-    
+<p>Motivated  by the fact that in a multi-channel scenarios not all microphones will be required to achieve good performance. So, we can reduce complexity by only processing data from a subset of devices. We construct a toy scene below where a speech source moves through an ad-hoc array.</p>
 
-    <li>
-      <h3><a class="post-title" href="/metaaf/sms-af">Supervised Multi-Step AFs</a>
-      </h3>
-      <p>Scaling Up Adaptive Filter Optimizers</p>
-      <p class="post-meta"> 2 min read &nbsp; &middot; &nbsp;
-        September 12, 2023
-      </p>
-      <p class="post-tags">
-        <a href="/blog/2023">
-          <i class="fas fa-calendar fa-sm"></i> 2023 </a>
+<center>
+<img src="/assets/img/camse/camse_toy_scenes.png" alt="drawing" width="100%">
+</center>
 
-          
+<p>However, selection is not a differentiable operation making it difficult to use with a neural network. To get around this we formulate the <a href="https://arxiv.org/abs/1603.08983" target="_blank" rel="noopener noreferrer">Adaptive Compute Time RNN</a> originally proposed by Alex Graves. Our reformulation iteratively requests new data in addition to updating it’s hidden state. We show the original Adaptive Compute Unit on the top in blue and our modification below in yellow.</p>
 
-          
-    </p>
-    </li>
+<center>
+<img src="/assets/img/camse/compute_to_select.png" alt="drawing" width="50%">
+</center>
 
-    
+<p>Using this adaptive request unit, we can run a speech enhancement model on an ad-hoc microphone array and adaptively decide how many microphones to stream from. Below, we depict the model at particular time step after having processed three microphones. The attention unit aggregates all information from the requested microphones and the scoring unit produces a value which we compare to a budget. If the value is within the budget then another microphone is requested. Otherwise, the model ceases requesting and moves on to the next point in time. The model is encouraged to request fewer microphones by minimizing the remainder, r. Minimizing this remainder maximizes the scores assigned to all previous sensors which encourages the model to exhaust it’s budget sooner.</p>
 
-    
-    
-    
-    
+<center>
+<img src="/assets/img/camse/ponder_diagram.png" alt="drawing" width="100%">
+</center>
 
-    <li>
-      <h3><a class="post-title" href="/metaaf/kws-af">Classification Trained AFs</a>
-      </h3>
-      <p>Meta-AF Echo Cancellation for Improved Keyword Spotting</p>
-      <p class="post-meta"> 2 min read &nbsp; &middot; &nbsp;
-        September 12, 2023
-      </p>
-      <p class="post-tags">
-        <a href="/blog/2023">
-          <i class="fas fa-calendar fa-sm"></i> 2023 </a>
+<p>The full model is made up of a multi-channel encoding stage, a request and aggregation stage, and a single channel decoding stage. The pipeline is shown in the model figure above. We tested this model in simulated echoic rooms with moving noises and source like the one shown above.</p>
 
-          
+<center>
+<img src="/assets/img/camse/camse_model.png" alt="drawing" width="100%">
+</center>
 
-          
-    </p>
-    </li>
+<p>The novelty of our method is two-fold. First, using a learning-based mechanism for microphone selection and second, learning that mechanism jointly with the enhancement network. We think there are many potential applications for these adaptive request units and hope to continue investigating them. Below are some randomly selected enhancement results from the trained network.</p>
 
-    
+<p align="center">
+  <strong>Randomly Selected Demos</strong>
+</p>
 
-    
-    
-    
-    
+<table border="1" style="margin:10px auto; width:85%">
+  <tr>
+    <td> </td>
+    <td>Random Scene 1</td>
+    <td>Random Scene 2</td>
+  </tr>
+  <tr>
+    <td>Clean</td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/camse/clean.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/camse/clean_1.wav"></source></audio></td>
+  </tr>
+  <tr>
+    <td>Microphone 1</td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/camse/noisy_0.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/camse/noisy_0_1.wav"></source></audio></td>
+  </tr>
+  <tr>
+    <td>Microphone 2</td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/camse/noisy_1.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/camse/noisy_1_1.wav"></source></audio></td>
+  </tr>
+  <tr>
+    <td>Microphone 3</td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/camse/noisy_2.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/camse/noisy_2_1.wav"></source></audio></td>
+  </tr>
+  <tr>
+    <td>Microphone 4</td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/camse/noisy_3.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/camse/noisy_3_1.wav"></source></audio></td>
+  </tr>
+  <tr>
+    <td>Prediction </td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/camse/pred.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/camse/pred_1.wav"></source></audio></td>
+  </tr>
+</table>
 
-    <li>
-      <h3><a class="post-title" href="/metaaf/higher-order">Higher-Order Meta-AF</a>
-      </h3>
-      <p>Meta-Learning for Adaptive Filters with Higher-Order Frequency Dependencies</p>
-      <p class="post-meta"> 2 min read &nbsp; &middot; &nbsp;
-        June 10, 2022
-      </p>
-      <p class="post-tags">
-        <a href="/blog/2022">
-          <i class="fas fa-calendar fa-sm"></i> 2022 </a>
+<p>Our paper is available on arxiv <a href="http://arxiv.org/abs/2011.07348" target="_blank" rel="noopener noreferrer">here</a>. Our code is available on GitHub <a href="https://github.com/jmcasebeer/cost_aware_enhancement" target="_blank" rel="noopener noreferrer">here</a>!</p>
 
-          
-
-          
-    </p>
-    </li>
-
-    
-  </ul>
-
-  
-<nav aria-label="Blog page naviation">
-  <ul class="pagination pagination-lg justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link" href="" tabindex="-1" aria-disabled="">Newer</a>
-    </li>
-    
-      
-        <li class="page-item active"><a class="page-link" href="/blog/index.html" title="demos & posts">1</a></li>
-      
-        <li class="page-item "><a class="page-link" href="/blog/page/2/index.html" title="demos & posts - page 2">2</a></li>
-      
-        <li class="page-item "><a class="page-link" href="/blog/page/3/index.html" title="demos & posts - page 3">3</a></li>
-      
-        <li class="page-item "><a class="page-link" href="/blog/page/4/index.html" title="demos & posts - page 4">4</a></li>
-      
-    
-    <li class="page-item ">
-      <a class="page-link" href="/blog/page/2/">Older</a>
-    </li>
-  </ul>
-</nav>
-
-
+  </article>
 
 </div>
 
@@ -285,7 +260,7 @@
     
 <footer class="fixed-bottom">
   <div class="container mt-0">
-    &copy; Copyright 2024 Jonah  Casebeer.
+    © Copyright 2024 Jonah  Casebeer.
     
     
     

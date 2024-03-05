@@ -12,7 +12,7 @@
   Jonah Casebeer
 
 
-  | demos & posts
+  | Deep Tensor Factorizations
 
 </title>
 <meta name="description" content="">
@@ -37,7 +37,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
 
 <link rel="stylesheet" href="/assets/css/main.css">
-<link rel="canonical" href="/blog/">
+<link rel="canonical" href="/projects/dntf">
 
 
 
@@ -111,8 +111,6 @@
           
           
           
-          
-          
           <li class="nav-item ">
               <a class="nav-link" href="/experience/">
                 experience
@@ -147,10 +145,10 @@
           
           
           <!-- Blog -->
-          <li class="nav-item active">
+          <li class="nav-item ">
             <a class="nav-link" href="/blog/">
               <!-- changed from blog -->
-              demos & posts
+              demos &amp; posts
               
             </a>
           </li>
@@ -169,112 +167,100 @@
     <div class="container mt-5">
       <div class="post">
 
-  <div class="header-bar">
-    <h1>Demos & Posts</h1>
-    <h2>Demos or pages for my research.</h2>
-  </div>
+  <header class="post-header">
+    <h1 class="post-title">Deep Tensor Factorizations</h1>
+    <p class="post-description">Autoencoders that after fitting correspond to a tensor factorization.</p>
+  </header>
 
+  <article>
+    <h1 id="deep-tensor-factorization-for-spatially-aware-scene-decomposition">Deep Tensor Factorization for Spatially-Aware Scene Decomposition</h1>
+<p>We propose a completely unsupervised method to understand audio scenes observed with random microphone arrangements by decomposing the scene into its constituent sources and their relative presence in each microphone. To this end, we formulate a neural network architecture that can be interpreted as a nonnegative tensor factorization of a multi-channel audio recording. By clustering on the learned network parameters corresponding to channel content, we can learn sources’ individual spectral dictionaries and their activation patterns over time. Our method allows us to leverage deep learning advances like end-to-end training, while also allowing stochastic minibatch training so that we can feasibly decompose realistic audio scenes that are intractable to decompose using standard methods. This neural network architecture is easily extensible to other kinds of tensor factorizations.</p>
 
-  <ul class="post-list">
-    
+<p><strong><em>Work by Jonah Casebeer, Michael Colomb and <a href="http://paris.cs.illinois.edu/" target="_blank" rel="noopener noreferrer">Paris Smaragdis</a>. Full paper pdf <a href="https://arxiv.org/abs/1905.01391" target="_blank" rel="noopener noreferrer">here</a>.</em></strong></p>
 
-    
-    
-    
-    
+<p>Here are some samples from our three source separation experiments. All simulations take place in a reverberant room. For each scene we first decompose the scene using our deep tensor factorization and then cluster components with k-means. The results below are entirely unsupervised separations using either the k-means cluster assignments or the cluster centers.</p>
 
-    <li>
-      <h3><a class="post-title" href="/metaaf/sms-af">Supervised Multi-Step AFs</a>
-      </h3>
-      <p>Scaling Up Adaptive Filter Optimizers</p>
-      <p class="post-meta"> 2 min read &nbsp; &middot; &nbsp;
-        September 12, 2023
-      </p>
-      <p class="post-tags">
-        <a href="/blog/2023">
-          <i class="fas fa-calendar fa-sm"></i> 2023 </a>
+<p><strong>Experiment One: Three Point Sources</strong></p>
+<table border="1" style="margin:0px auto; width:50%">
+  <tr>
+    <td>Method.</td>
+    <td>Source 1.</td>
+    <td>Source 2</td>
+    <td>Source 3</td>
+  </tr>
+  <tr>
+    <td>Assignment Based</td>
+		<td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/3s_no_noise/assign1.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/3s_no_noise/assign2.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/3s_no_noise/assign3.wav"></source></audio></td>
+  </tr>
+  <tr>
+    <td>Center Based</td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/3s_no_noise/center1.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/3s_no_noise/center2.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/3s_no_noise/center3.wav"></source></audio></td>
+  </tr>
+  <tr>
+    <td>Individual Sources</td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/3s_no_noise/source1.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/3s_no_noise/source2.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/3s_no_noise/source3.wav"></source></audio></td>
+  </tr>
+</table>
 
-          
+<p><strong>Experiment Two: Two Point Sources One Ambient</strong></p>
+<table border="1" style="margin:0px auto; width:50%">
+  <tr>
+    <td>Method.</td>
+    <td>Source 1.</td>
+    <td>Source 2</td>
+    <td>Source 3</td>
+  </tr>
+  <tr>
+    <td>Assignment Based</td>
+		<td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/3s_noise/assign1.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/3s_noise/assign2.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/3s_noise/assign3.wav"></source></audio></td>
+  </tr>
+  <tr>
+    <td>Center Based</td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/3s_noise/center1.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/3s_noise/center2.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/3s_noise/center3.wav"></source></audio></td>
+  </tr>
+  <tr>
+    <td>Individual Sources</td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/3s_noise/source1.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/3s_noise/source2.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/3s_noise/source3.wav"></source></audio></td>
+  </tr>
+</table>
 
-          
-    </p>
-    </li>
+<p><strong>Experiment Three: Three Point Sources with a Duplicate</strong></p>
+<table border="1" style="margin:0px auto; width:50%">
+  <tr>
+    <td>Method.</td>
+    <td>Source 1.</td>
+    <td>Source 2</td>
+  </tr>
+  <tr>
+    <td>Assignment Based</td>
+		<td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/2s_dup/assign1.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/2s_dup/assign2.wav"></source></audio></td>
+  </tr>
+  <tr>
+    <td>Center Based</td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/2s_dup/center1.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/2s_dup/center2.wav"></source></audio></td>
+  </tr>
+  <tr>
+    <td>Individual Sources</td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/2s_dup/source1.wav"></source></audio></td>
+    <td><audio controls="" style="width: 200px;"><source src="/assets/audio/dntf/2s_dup/source2.wav"></source></audio></td>
+  </tr>
+</table>
 
-    
-
-    
-    
-    
-    
-
-    <li>
-      <h3><a class="post-title" href="/metaaf/kws-af">Classification Trained AFs</a>
-      </h3>
-      <p>Meta-AF Echo Cancellation for Improved Keyword Spotting</p>
-      <p class="post-meta"> 2 min read &nbsp; &middot; &nbsp;
-        September 12, 2023
-      </p>
-      <p class="post-tags">
-        <a href="/blog/2023">
-          <i class="fas fa-calendar fa-sm"></i> 2023 </a>
-
-          
-
-          
-    </p>
-    </li>
-
-    
-
-    
-    
-    
-    
-
-    <li>
-      <h3><a class="post-title" href="/metaaf/higher-order">Higher-Order Meta-AF</a>
-      </h3>
-      <p>Meta-Learning for Adaptive Filters with Higher-Order Frequency Dependencies</p>
-      <p class="post-meta"> 2 min read &nbsp; &middot; &nbsp;
-        June 10, 2022
-      </p>
-      <p class="post-tags">
-        <a href="/blog/2022">
-          <i class="fas fa-calendar fa-sm"></i> 2022 </a>
-
-          
-
-          
-    </p>
-    </li>
-
-    
-  </ul>
-
-  
-<nav aria-label="Blog page naviation">
-  <ul class="pagination pagination-lg justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link" href="" tabindex="-1" aria-disabled="">Newer</a>
-    </li>
-    
-      
-        <li class="page-item active"><a class="page-link" href="/blog/index.html" title="demos & posts">1</a></li>
-      
-        <li class="page-item "><a class="page-link" href="/blog/page/2/index.html" title="demos & posts - page 2">2</a></li>
-      
-        <li class="page-item "><a class="page-link" href="/blog/page/3/index.html" title="demos & posts - page 3">3</a></li>
-      
-        <li class="page-item "><a class="page-link" href="/blog/page/4/index.html" title="demos & posts - page 4">4</a></li>
-      
-    
-    <li class="page-item ">
-      <a class="page-link" href="/blog/page/2/">Older</a>
-    </li>
-  </ul>
-</nav>
-
-
+  </article>
 
 </div>
 
@@ -285,7 +271,7 @@
     
 <footer class="fixed-bottom">
   <div class="container mt-0">
-    &copy; Copyright 2024 Jonah  Casebeer.
+    © Copyright 2024 Jonah  Casebeer.
     
     
     
