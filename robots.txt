@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://jmcasebeer.github.io/sitemap.xml

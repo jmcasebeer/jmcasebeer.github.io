@@ -1,0 +1,274 @@
+:root {
+    --burgundy: #800020;
+    --burgundy-light: #aa314d;
+    --burgundy-dark: #600018;
+    --paper: #fffff8;
+    --link: #900020;
+    --text-secondary: rgba(0, 0, 0, 0.7);
+    /* LaTeX measurements */
+    --pagewidth: 8.5in;
+    --pageheight: 11in;
+    --margin-horizontal: 1in;
+    --margin-vertical: 1in;
+    --line-height: 1.5;
+    /* Golden ratio spacing */
+    --phi: 1.618;
+    --space-xs: 0.5rem;
+    --space-sm: calc(var(--space-xs) * var(--phi));
+    --space-md: calc(var(--space-sm) * var(--phi));
+    --space-lg: calc(var(--space-md) * var(--phi));
+    --space-xl: calc(var(--space-lg) * var(--phi));
+}
+
+@font-face {
+    font-family: 'Latin Modern';
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/lato/2.33/fonts/lato-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #f0f0f0;
+    font-family: 'Latin Modern', 'Computer Modern', Georgia, serif;
+    line-height: var(--line-height);
+    font-size: 12pt;
+    color: rgba(0, 0, 0, 0.87);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.01em;
+}
+
+.page {
+    background: var(--paper);
+    width: var(--pagewidth);
+    min-height: var(--pageheight);
+    padding: var(--space-xl) var(--margin-horizontal);
+    box-sizing: border-box;
+    margin: var(--space-md) auto;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+    font-family: inherit;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-md);
+    font-weight: normal;
+    letter-spacing: 0.02em;
+    background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+h1 {
+    font-size: 24pt;
+    text-align: center;
+    margin-bottom: var(--space-sm);
+    letter-spacing: 0.05em;
+}
+
+h2 {
+    font-size: 16pt;
+    border-bottom: 1px solid var(--burgundy);
+    padding-bottom: var(--space-xs);
+    margin-top: var(--space-lg);
+}
+
+.title-section {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.headshot {
+    border-radius: 10%;
+    margin-bottom: var(--space-lg);
+}
+
+.institution {
+    margin: var(--space-md) 0;
+    font-size: 14pt;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+}
+
+a {
+    color: var(--link);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-family: 'Latin Modern', monospace;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+}
+
+a:hover {
+    color: var(--burgundy-light);
+    text-decoration: underline;
+}
+
+.social-links {
+    margin: var(--space-lg) 0;
+    font-size: 11pt;
+}
+
+.social-links a {
+    margin: 0 var(--space-md);
+    color: var(--link);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.social-links a:hover {
+    border-bottom-color: var(--link);
+}
+
+.abstract {
+    margin: var(--space-lg) 0;
+    padding: var(--space-lg);
+    background: rgba(128, 0, 32, 0.02);
+    border-left: 3px solid var(--burgundy);
+    font-size: 11pt;
+    line-height: 1.7;
+}
+
+.abstract-title {
+    font-size: 14pt;
+    font-weight: bold;
+    color: var(--burgundy);
+    margin-bottom: var(--space-sm);
+}
+
+.publication-year {
+    color: var(--burgundy);
+    font-size: 14pt;
+    margin: var(--space-xl) 0 var(--space-sm) 0;
+    font-variant: small-caps;
+    letter-spacing: 0.1em;
+}
+
+.publication-item {
+    margin: var(--space-md) 0;
+    padding: var(--space-sm);
+    background: rgba(128, 0, 32, 0.015);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    border-left: 2px solid transparent;
+}
+
+.publication-item:hover {
+    background: rgba(128, 0, 32, 0.03);
+    border-left: 3px solid var(--burgundy);
+
+}
+
+.publication-title {
+    cursor: pointer;
+    position: relative;
+    padding-right: var(--space-lg);
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 11pt;
+    font-weight: normal;
+    transition: color 0.2s ease;
+}
+
+.publication-title:hover {
+    color: var(--burgundy-light);
+    transition: color 0.3s ease;
+}
+
+.publication-title::after {
+    content: '▾';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.0rem;
+    color: var(--burgundy);
+    transition: transform 0.2s ease;
+}
+
+.publication-title.active::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.publication-details {
+    display: none;
+    margin-top: var(--space-md);
+    padding-top: var(--space-sm);
+    border-top: 1px solid rgba(128, 0, 32, 0.1);
+    color: var(--text-secondary);
+    font-size: 11pt;
+}
+
+.publication-details.active {
+    display: block;
+}
+
+.publication-details p {
+    line-height: 1.6;
+    margin-bottom: var(--space-sm);
+    font-size: 11pt;
+}
+
+.publication-links {
+    margin-top: var(--space-md);
+    font-size: 10pt;
+    color: var(--text-secondary);
+}
+
+.publication-links a {
+    margin-right: var(--space-md);
+    color: var(--link);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-family: 'Latin Modern', monospace;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+}
+
+.publication-links a:hover {
+    border-bottom-color: var(--link);
+}
+
+.footnote {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-sm);
+    border-top: 1px solid rgba(128, 0, 32, 0.2);
+    color: var(--text-secondary);
+    font-size: 9pt;
+    font-style: italic;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --margin-horizontal: 0.5in;
+        --margin-vertical: 0.5in;
+    }
+
+    .page {
+        width: 100%;
+        margin: 0;
+        min-height: auto;
+    }
+
+    h1 {
+        font-size: 20pt;
+    }
+
+    h2 {
+        font-size: 14pt;
+    }
+}

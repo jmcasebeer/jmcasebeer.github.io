@@ -1,994 +1,528 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
 
-<title>
+<body>
+    <div class="page">
+        <div class="title-section">
+            <h1>Jonah Casebeer</h1>
+            <div class="institution">
+                Adobe Research<br>
+                San Francisco
+            </div>
+            <img src="./prof_pic_2023.jpg" alt="Profile Picture of Jonah Casebeer" class="headshot">
 
-  Jonah Casebeer
+            <div class="social-links">
+                <a href="mailto:jonah.casebeer@ieee.org" aria-label="Email Jonah Casebeer">Email</a>
+                <a href="https://scholar.google.com/citations?user=QwAo-K4AAAAJ&hl=en" target="_blank"
+                    aria-label="Google Scholar Profile">Scholar</a>
+            </div>
+        </div>
 
+        <div class="abstract">
+            <div class="abstract-title">About Me</div>
+            <p>
+                I am a research scientist in the Music AI group at Adobe Research, focusing on machine learning for
+                signal processing. My research interests center on optimization and representation learning for audio
+                generation, editing, and enhancement. I received both my Ph.D. in Computer Science and B.S. in
+                Statistics and Computer Science from the University of Illinois Urbana-Champaign, where I was advised by
+                Prof. Paris Smaragdis.
+            </p>
+        </div>
 
-</title>
-<meta name="description" content="">
+        <div class="section">
+            <h2>Prospective Interns</h2>
+            <p>I am enthusiastic about collaborating with students through research internships at Adobe Research in San
+                Francisco. The internship program spans 3-4 months during the summer. If you are passionate about
+                applying machine learning, deep learning, or signal processing to audio, I encourage you to get in
+                touch. Please send me your CV along with a brief explanation of your research interests. My Adobe page
+                is <a href="https://research.adobe.com/person/jonah-casebeer/">here</a>.</p>
+        </div>
 
-<!-- Open Graph -->
+        <div class="section">
+            <h2>Publications</h2>
+            <div class="publication-year">2025</div>
+            <div class="publication-item">
+                <div class="publication-title">
+                    Re-Bottleneck: Latent Re-Structuring for Neural Audio Autoencoders
+                </div>
+                <div class="publication-details">
+                    <p>Bralios, Dimitrios and <strong>Casebeer, Jonah</strong></p>
+                    <p><em>Preprint</em></p>
+                    <p><em>Abstract:</em> Neural audio codecs and autoencoders have emerged as versatile models for
+                        audio compression, transmission, feature-extraction, and latent-space generation. However, a key
+                        limitation is that most are trained to maximize reconstruction fidelity, often neglecting the
+                        specific latent structure necessary for optimal performance in diverse downstream applications.
+                        We propose a simple, post-hoc framework to address this by modifying the bottleneck of a
+                        pre-trained autoencoder. Our method introduces a "Re-Bottleneck", an inner bottleneck trained
+                        exclusively through latent space losses to instill user-defined structure. We demonstrate the
+                        framework's effectiveness in three experiments. First, we enforce an ordering on latent channels
+                        without sacrificing reconstruction quality. Second, we align latents with semantic embeddings,
+                        analyzing the impact on downstream diffusion modeling. Third, we introduce equivariance,
+                        ensuring that a filtering operation on the input waveform directly corresponds to a specific
+                        transformation in the latent space. Ultimately, our Re-Bottleneck framework offers a flexible
+                        and efficient way to tailor representations of neural audio models, enabling them to seamlessly
+                        meet the varied demands of different applications with minimal additional training.</p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2507.07867">[PDF]</a>
+                        <a href="https://arxiv.org/abs/2507.07867">[arXiv]</a>
+                        <a href="https://github.com/dbralios/rebottleneck">[Code]</a>
+                    </div>
+                </div>
+            </div>
+            <div class="publication-item">
+                <div class="publication-title">
+                    Learning to Upsample and Upmix Audio in the Latent Domain
+                </div>
+                <div class="publication-details">
+                    <p>Bralios, Dimitrios and Smaragdis, Paris and <strong>Casebeer, Jonah</strong>
+                    </p>
+                    <p><em>Preprint</em></p>
+                    <p><em>Abstract:</em>Neural audio autoencoders create compact latent
+                        representations that preserve perceptually important information, serving
+                        as the foundation for both modern audio compression systems and
+                        generation approaches like next-token prediction and latent diffusion.
+                        Despite their prevalence, most audio processing operations, such as spatial
+                        and spectral up-sampling, still inefficiently operate on raw waveforms
+                        or spectral representations rather than directly on these compressed
+                        representations. We propose a framework that performs audio processing
+                        operations entirely within an autoencoder's latent space, eliminating
+                        the need to decode to raw audio formats. Our approach dramatically
+                        simplifies training by operating solely in the latent domain, with a
+                        latent L1 reconstruction term, augmented by a single latent adversarial
+                        discriminator. This contrasts sharply with raw-audio methods that typically
+                        require complex combinations of multi-scale losses and discriminators.
+                        Through experiments in bandwidth extension and mono-to-stereo
+                        upmixing, we demonstrate computational efficiency gains of up to 100×
+                        while maintaining quality comparable to post-processing on raw audio.
+                        This work establishes a more efficient paradigm for audio processing
+                        pipelines that already incorporate autoencoders, enabling significantly
+                        faster and more resource-efficient workflows across various audio tasks.</p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2506.00681">[PDF]</a>
+                        <a href="https://arxiv.org/abs/2506.00681">[arXiv]</a>
+                        <a href="https://re-encoders.github.io/latent-bwe-m2s/">[Demo]</a>
+                    </div>
+                </div>
+            </div>
+            <div class="publication-item">
+                <div class="publication-title">
+                    DRAGON: Distributional Rewards Optimize Diffusion Generative Models
+                </div>
+                <div class="publication-details">
+                    <p>Bai, Yatong and <strong>Casebeer, Jonah</strong> and Sojoudi, Somayeh and Bryan, Nicholas J
+                    </p>
+                    <p><em>Preprint</em></p>
+                    <p><em>Abstract:</em>We present Distributional RewArds for Generative OptimizatioN (DRAGON), a
+                        versatile framework for fine-tuning media generation models towards a desired outcome. Compared
+                        with traditional reinforcement learning with human feedback (RLHF) or pairwise preference
+                        approaches such as direct preference optimization (DPO), DRAGON is more flexible. It can
+                        optimize reward functions that evaluate either individual examples or distributions of them,
+                        making it compatible with a broad spectrum of instance-wise, instance-to-distribution, and
+                        distribution-to-distribution rewards. Leveraging this versatility, we construct novel reward
+                        functions by selecting an encoder and a set of reference examples to create an exemplar
+                        distribution. When cross-modality encoders such as CLAP are used, the reference examples
+                        may be of a different modality (e.g., text versus audio). Then, DRAGON gathers online and
+                        on-policy generations, scores them to construct a positive demonstration set and a negative
+                        set, and leverages the contrast between the two sets to maximize the reward. For evaluation,
+                        we fine-tune an audio-domain text-to-music diffusion model with 20 different reward func-
+                        tions, including a custom music aesthetics model, CLAP score, Vendi diversity, and Fréchet
+                        audio distance (FAD). We further compare instance-wise (per-song) and full-dataset FAD
+                        settings while ablating multiple FAD encoders and reference sets. Over all 20 target re-
+                        wards, DRAGON achieves an 81.45% average win rate. Moreover, reward functions based
+                        on exemplar sets indeed enhance generations and are comparable to model-based rewards.
+                        With an appropriate exemplar set, DRAGON achieves a 60.95% human-voted music quality
+                        win rate without training on human preference annotations. As such, DRAGON exhibits a
+                        new approach to designing and optimizing reward functions for improving human-perceived
+                        quality. Example generations can be found at https://ml-dragon.github.io/web.</p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2504.15217">[PDF]</a>
+                        <a href="https://arxiv.org/abs/2504.15217">[arXiv]</a>
+                        <a href="https://ml-dragon.github.io/web">[Demo]</a>
+                    </div>
+                </div>
+            </div>
+            <div class="publication-item">
+                <div class="publication-title">
+                    REGEN: Learning Compact Video Embedding with (Re-) Generative Decoder
+                </div>
+                <div class="publication-details">
+                    <p>Zhang, Yitian and Mai, Long and Mahapatra, Aniruddha and Bourgin, David and Hong, Yicong and
+                        <strong>Casebeer, Jonah</strong> and Liu, Feng and Fu, Yun
+                    </p>
+                    <p><em>Preprint</em></p>
+                    <p><em>Abstract:</em>We present a novel perspective on learning video embedders for generative
+                        modeling: rather than requiring an exact reproduction of an input video, an effective embedder
+                        should focus on synthesizing visually plausible reconstructions. This relaxed criterion enables
+                        substantial improvements in compression ratios without compromising the quality of downstream
+                        generative models. Specifically, we propose replacing the conventional encoder-decoder video
+                        embedder with an encoder-generator framework that employs a diffusion transformer (DiT) to
+                        synthesize missing details from a compact latent space. Therein, we develop a dedicated latent
+                        conditioning module to condition the DiT decoder on the encoded video latent embedding. Our
+                        experiments demonstrate that our approach enables superior encoding-decoding performance
+                        compared to state-of-the-art methods, particularly as the compression ratio increases. To
+                        demonstrate the efficacy of our approach, we report results from our video embedders achieving a
+                        temporal compression ratio of up to 32x (8x higher than leading video embedders) and validate
+                        the robustness of this ultra-compact latent space for text-to-video generation, providing a
+                        significant efficiency boost in latent diffusion model training and inference.</p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2503.08665">[PDF]</a>
+                        <a href="https://arxiv.org/abs/2503.08665">[arXiv]</a>
+                        <a href="https://bespontaneous.github.io/REGEN/">[Demo]</a>
+                    </div>
+                </div>
+            </div>
+            <div class="publication-year">2024</div>
+            <div class="publication-item">
+                <div class="publication-title">
+                    Presto! Distilling Steps and Layers for Accelerating Music Generation
+                </div>
+                <div class="publication-details">
+                    <p>Novack, Zachary and Zhu, Ge and <strong>Casebeer, Jonah</strong> and McAuley, Julian and
+                        Berg-Kirkpatrick, Taylor and Bryan, Nicholas J</p>
+                    <p><em>Preprint</em></p>
+                    <p><em>Abstract:</em> Despite advances in diffusion-based text-to-music (TTM) methods, efficient,
+                        high-quality generation remains a challenge. We introduce Presto!, an approach to inference
+                        acceleration for score-based diffusion transformers via reducing both sampling steps and cost
+                        per step. To reduce steps, we develop a new score-based distribution matching distillation (DMD)
+                        method for the EDM-family of diffusion models, the first GAN-based distillation method for TTM.
+                        To reduce the cost per step, we develop a simple, but powerful improvement to a recent layer
+                        distillation method that improves learning via better preserving hidden state variance. Finally,
+                        we combine our step and layer distillation methods together for a dual-faceted approach. We
+                        evaluate our step and layer distillation methods independently and show each yield best-in-class
+                        performance. Our combined distillation method can generate high-quality outputs with improved
+                        diversity, accelerating our base model by 10-18x (230/435ms latency for 32 second mono/stereo
+                        44.1kHz, 15x faster than comparable SOTA) -- the fastest high-quality TTM to our knowledge.
+                        Sound examples can be found at this https URL.</p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2410.05167">[PDF]</a>
+                        <a href="https://arxiv.org/abs/2410.05167">[arXiv]</a>
+                        <a href="https://presto-music.github.io/web/">[Demo]</a>
+                    </div>
+                </div>
+            </div>
 
+            <div class="publication-item">
+                <div class="publication-title">
+                    Scaling Up Adaptive Filter Optimizers
+                </div>
+                <div class="publication-details">
+                    <p><strong>Casebeer, Jonah</strong> and Bryan, Nicholas J and Smaragdis, Paris</p>
+                    <p><em>Preprint</em></p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2403.00977">[PDF]</a>
+                        <a href="https://arxiv.org/abs/2403.00977">[arXiv]</a>
+                        <a href="https://github.com/adobe-research/MetaAF">[Code]</a>
+                        <a href="#">[Demo]</a>
+                    </div>
+                </div>
+            </div>
 
-<!-- Bootstrap & MDB -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" integrity="sha512-RO38pBRxYH3SoOprtPTD86JFOclM51/XTIdEPh5j8sj4tp8jmQIx26twG52UaLi//hQldfrh7e51WzP9wuP32Q==" crossorigin="anonymous" />
+            <div class="publication-item">
+                <div class="publication-title">
+                    Meta-AF Echo Cancellation for Improved Keyword Spotting
+                </div>
+                <div class="publication-details">
+                    <p><strong>Casebeer, Jonah</strong> and Wu, Junkai and Smaragdis, Paris</p>
+                    <p><em>IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em></p>
+                    <p><em>Abstract:</em> Adaptive filters (AFs) are vital for enhancing the performance of downstream
+                        tasks, such as speech recognition, sound event detection, and keyword spotting. However,
+                        traditional AF design prioritizes isolated signal-level objectives, often overlooking downstream
+                        task performance. This can lead to suboptimal performance. Recent research has leveraged
+                        meta-learning to automatically learn AF update rules from data, alleviating the need for manual
+                        tuning when using simple signal-level objectives. This paper improves the Meta-AF framework by
+                        expanding it to support end-to-end training for arbitrary downstream tasks. We focus on
+                        classification tasks, where we introduce a novel training methodology that harnesses
+                        self-supervision and classifier feedback. We evaluate our approach on the combined task of
+                        acoustic echo cancellation and keyword spotting. Our findings demonstrate consistent performance
+                        improvements with both pre-trained and joint-trained keyword spotting models across synthetic
+                        and real playback. Notably, these improvements come without requiring additional tuning,
+                        increased inference-time complexity, or reliance on oracle signal-level training data.</p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2312.10605">[PDF]</a>
+                        <a href="https://arxiv.org/abs/2312.10605">[arXiv]</a>
+                        <a href="https://github.com/adobe-research/MetaAF/tree/ct-meta-af/zoo/ct_af">[Code]</a>
+                    </div>
+                </div>
+            </div>
 
-<!-- Fonts & Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"  integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+            <div class="publication-year">2023</div>
+            <div class="publication-item">
+                <div class="publication-title">
+                    Meta-Learning for Adaptive Filtering - Ph.D. Thesis
+                </div>
+                <div class="publication-details">
+                    <p><strong>Casebeer, Jonah</strong></p>
+                    <p><em>Ph.D. Thesis, University of Illinois at Urbana-Champaign</em></p>
+                    <div class="publication-links">
+                        <a href="https://www.ideals.illinois.edu/items/129160">[Website]</a>
+                    </div>
+                </div>
+            </div>
 
-<!-- Code Syntax Highlighting -->
-<link rel="stylesheet" href="https://gitcdn.xyz/repo/jwarby/jekyll-pygments-themes/master/github.css" />
+            <div class="publication-item">
+                <div class="publication-title">
+                    Meta-AF: Meta-Learning for Adaptive Filters
+                </div>
+                <div class="publication-details">
+                    <p><strong>Casebeer, Jonah</strong> and Bryan, Nicholas J and Smaragdis, Paris</p>
+                    <p><em>IEEE/ACM Transactions on Audio, Speech, and Language Processing</em></p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2204.11942">[PDF]</a>
+                        <a href="https://arxiv.org/abs/2204.11942">[arXiv]</a>
+                        <a href="https://github.com/adobe-research/MetaAF">[Code]</a>
+                        <a href="https://jmcasebeer.github.io/projects/metaaf">[Website]</a>
+                    </div>
+                </div>
+            </div>
 
-<!-- Styles -->
+            <div class="publication-year">2022</div>
+            <div class="publication-item">
+                <div class="publication-title">
+                    Meta-Learning for Adaptive Filters with Higher-Order Frequency Dependencies
+                </div>
+                <div class="publication-details">
+                    <p>Wu, Junkai and <strong>Casebeer, Jonah</strong> and Bryan, Nicholas J. and Smaragdis, Paris</p>
+                    <p><em>IEEE International Workshop on Acoustic Signal Enhancement (IWAENC)</em></p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2209.09955">[PDF]</a>
+                        <a href="https://arxiv.org/abs/2209.09955">[arXiv]</a>
+                        <a href="https://github.com/adobe-research/MetaAF">[Code]</a>
+                        <a href="https://jmcasebeer.github.io/metaaf/higher-order">[Demo]</a>
+                    </div>
+                </div>
+            </div>
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+            <div class="publication-item">
+                <div class="publication-title">
+                    NICE-Beam: Neural Integrated Covariance Estimators for Time-Varying Beamformers
+                </div>
+                <div class="publication-details">
+                    <p><strong>Casebeer, Jonah</strong> and Donley, Jacob and Wong, Daniel and Xu, Buye and Kumar,
+                        Anurag
+                    </p>
+                    <p><em>Preprint</em></p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2112.04613">[PDF]</a>
+                        <a href="https://arxiv.org/abs/2112.04613">[arXiv]</a>
+                    </div>
+                </div>
+            </div>
 
-<link rel="stylesheet" href="/assets/css/main.css">
-<link rel="canonical" href="/">
+            <div class="publication-year">2021</div>
+            <div class="publication-item">
+                <div class="publication-title">
+                    Auto-DSP: Learning to Optimize Acoustic Echo Cancellers
+                </div>
+                <div class="publication-details">
+                    <p><strong>Casebeer, Jonah</strong> and Bryan, Nicholas J and Smaragdis, Paris</p>
+                    <p><em>IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA)</em></p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2110.04284">[PDF]</a>
+                        <a href="https://arxiv.org/abs/2110.04284">[arXiv]</a>
+                        <a href="https://github.com/jmcasebeer/autodsp">[Code]</a>
+                        <a href="https://jmcasebeer.github.io/projects/auto-dsp/">[Demo]</a>
+                    </div>
+                </div>
+            </div>
 
+            <div class="publication-item">
+                <div class="publication-title">
+                    Sound Event Detection with Adaptive Frequency Selection
+                </div>
+                <div class="publication-details">
+                    <p>Wang, Zhepei and <strong>Casebeer, Jonah</strong> and Clemmitt, Adam and Tzinis, Efthymios and
+                        Smaragdis, Paris</p>
+                    <p><em>IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA)</em></p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2105.07596">[PDF]</a>
+                        <a href="https://arxiv.org/abs/2105.07596">[arXiv]</a>
+                        <a href="https://github.com/zhepeiw/adaptive_freq_select">[Code]</a>
+                    </div>
+                </div>
+            </div>
 
+            <div class="publication-item">
+                <div class="publication-title">
+                    Separate but Together: Unsupervised Federated Learning for Speech Enhancement from Non-IID Data
+                </div>
+                <div class="publication-details">
+                    <p>Tzinis, Efthymios and <strong>Casebeer, Jonah</strong> and Wang, Zhepei and Smaragdis, Paris</p>
+                    <p><em>IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA)</em></p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2105.04727">[PDF]</a>
+                        <a href="https://arxiv.org/abs/2105.04727">[arXiv]</a>
+                        <a href="https://github.com/etzinis/fedenhance">[Code]</a>
+                    </div>
+                </div>
+            </div>
 
-  </head>
+            <div class="publication-item">
+                <div class="publication-title">
+                    Enhancing Into the Codec: Noise Robust Speech Coding with Vector-Quantized Autoencoders
+                </div>
+                <div class="publication-details">
+                    <p><strong>Casebeer, Jonah</strong> and Vale, Vinjai and Isik, Umut and Valin, Jean-Marc and Giri,
+                        Ritwik and Krishnaswamy, Arvindh</p>
+                    <p><em>IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em></p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2102.06610">[PDF]</a>
+                        <a href="https://arxiv.org/abs/2102.06610">[arXiv]</a>
+                    </div>
+                </div>
+            </div>
 
-  <body class="fixed-top-nav ">
+            <div class="publication-year">2020</div>
+            <div class="publication-item">
+                <div class="publication-title">
+                    Communication-Cost Aware Microphone Selection For Neural Speech Enhancement with Ad-hoc Microphone
+                    Arrays
+                </div>
+                <div class="publication-details">
+                    <p><strong>Casebeer, Jonah</strong> and Kaikaus, Jamshed and Smaragdis, Paris</p>
+                    <p><em>IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em></p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2011.07348">[PDF]</a>
+                        <a href="https://arxiv.org/abs/2011.07348">[arXiv]</a>
+                        <a href="https://github.com/jmcasebeer/cost_aware_enhancement">[Code]</a>
+                        <a href="https://jmcasebeer.github.io/projects/camse">[Demo]</a>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Header -->
+            <div class="publication-item">
+                <div class="publication-title">
+                    Efficient Trainable Front-Ends for Neural Speech Enhancement
+                </div>
+                <div class="publication-details">
+                    <p><strong>Casebeer, Jonah</strong> and Isik, Umut and Venkataramani, Shrikant and Krishnaswamy,
+                        Arvindh
+                    </p>
+                    <p><em>IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em></p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2002.09286">[PDF]</a>
+                        <a href="https://arxiv.org/abs/2002.09286">[arXiv]</a>
+                    </div>
+                </div>
+            </div>
 
-    <header>
+            <div class="publication-year">2019</div>
+            <div class="publication-item">
+                <div class="publication-title">
+                    Deep Tensor Factorization for Spatially-Aware Scene Decomposition
+                </div>
+                <div class="publication-details">
+                    <p><strong>Casebeer, Jonah</strong> and Colomb, Michael and Smaragdis, Paris</p>
+                    <p><em>IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA)</em></p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/1905.01391">[PDF]</a>
+                        <a href="https://arxiv.org/abs/1905.01391">[arXiv]</a>
+                        <a href="https://jmcasebeer.github.io/projects/dntf">[Demo]</a>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Nav Bar -->
-    <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
-    <div class="container">
-      
-      <a class="navbar-brand title font-weight-lighter" href="https://jmcasebeer.github.io/">
-       Jonah Casebeer
-      </a>
-      
-      <!-- Navbar Toggle -->
-      <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar top-bar"></span>
-        <span class="icon-bar middle-bar"></span>
-        <span class="icon-bar bottom-bar"></span>
-      </button>
-      <div class="collapse navbar-collapse text-right" id="navbarNav">
-        <ul class="navbar-nav ml-auto flex-nowrap">
-          <!-- About -->
-          <li class="nav-item ">
-            <a class="nav-link" href="/">
-              about
-              
-            </a>
-          </li>
-          
-          <!-- Other pages -->
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          <li class="nav-item ">
-              <a class="nav-link" href="/experience/">
-                experience
-                
-              </a>
-          </li>
-          
-          
-          
-          
-          
-          <li class="nav-item ">
-              <a class="nav-link" href="/publications/">
-                publications
-                
-              </a>
-          </li>
-          
-          
-          
-          
-          
-          <li class="nav-item ">
-              <a class="nav-link" href="/projects/">
-                research
-                
-              </a>
-          </li>
-          
-          
-          
-          
-          
-          <!-- Blog -->
-          <li class="nav-item ">
-            <a class="nav-link" href="/blog/">
-              <!-- changed from blog -->
-              demos &amp; posts
-              
-            </a>
-          </li>
-          
-          
-        </ul>
-      </div>
+            <div class="publication-item">
+                <div class="publication-title">
+                    Dimensional Analysis of Laughter in Female Conversational Speech
+                </div>
+                <div class="publication-details">
+                    <p>Pietrowicz, Mary and Agurto, Carla and <strong>Casebeer, Jonah</strong> and Hasegawa-Johnson,
+                        Mark
+                        and Karahalios, Karrie and Cecchi, Guillermo</p>
+                    <p><em>IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em></p>
+                    <div class="publication-links">
+                        <a href="https://www.ibm.com/blogs/research/2019/05/conversational-laughter-ai/">[Website]</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="publication-title">
+                    Multipath-Enabled Private Audio with Noise
+                </div>
+                <div class="publication-details">
+                    <p>Chaman, Anadi and Liu, Yu-Jeh and <strong>Casebeer, Jonah</strong> and Dokmani{\'c}, Ivan</p>
+                    <p><em>IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em></p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/1811.07065">[PDF]</a>
+                        <a href="https://arxiv.org/abs/1811.07065">[arXiv]</a>
+                        <a href="https://github.com/achaman2/noise-becomes-voice">[Code]</a>
+                        <a href="https://swing-research.github.io/private-audio/">[Demo]</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="publication-title">
+                    Multi-View Networks For Multi-Channel Audio Classification
+                </div>
+                <div class="publication-details">
+                    <p><strong>Casebeer, Jonah</strong> and Wang, Zhepei and Smaragdis, Paris</p>
+                    <p><em>IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em></p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/1811.01251">[PDF]</a>
+                        <a href="https://arxiv.org/abs/1811.01251">[arXiv]</a>
+                        <a href="http://zhepeiw.com/2019/05/24/blog2.html">[Demo]</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="publication-year">2018</div>
+            <div class="publication-item">
+                <div class="publication-title">
+                    Cocktails, but no party: multipath-enabled private audio
+                </div>
+                <div class="publication-details">
+                    <p>Liu, Yu-Jeh and <strong>Casebeer, Jonah</strong> and Dokmani{\'c}, Ivan</p>
+                    <p><em>IEEE International Workshop on Acoustic Signal Enhancement</em></p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/1809.05862">[PDF]</a>
+                        <a href="https://arxiv.org/abs/1809.05862">[arXiv]</a>
+                        <a href="https://github.com/swing-research/sonicdot">[Code]</a>
+                        <a href="https://swing-research.github.io/sonicdot/">[Demo]</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="publication-title">
+                    Verbal Protest Recognition in Children with Autism
+                </div>
+                <div class="publication-details">
+                    <p><strong>Casebeer, J</strong> and Sarker, H and Dhuliawala, M and Fay, N and Pietrowicz, M and
+                        Das, A
+                    </p>
+                    <p><em>IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em></p>
+                    <div class="publication-links">
+                        <a
+                            href="https://sigport.org/sites/default/files/docs/icassp2018_verbal_protest_poster.final__0.pdf">[Poster]</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="publication-title">
+                    Multi-View Networks for Denoising of Arbitrary Numbers of Channels
+                </div>
+                <div class="publication-details">
+                    <p><strong>Casebeer, Jonah</strong> and Luc, Brian and Smaragdis, Paris</p>
+                    <p><em>IEEE International Workshop on Acoustic Signal Enhancement (IWAENC)</em></p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/1806.05296">[PDF]</a>
+                        <a href="https://arxiv.org/abs/1806.05296">[arXiv]</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footnote">
+            Last updated: August 2025
+        </div>
     </div>
-  </nav>
-
-</header>
-
-
-    <!-- Content -->
-
-    <div class="container mt-5">
-      <div class="post">
-
-  <header class="post-header">
-    <h1 class="post-title">
-     Jonah Casebeer
-    </h1>
-     <p class="desc"></p>
-  </header>
-
-  <article>
-    
-    <div class="profile float-right">
-      
-        
-
-
-<img class="img-fluid z-depth-1 rounded" src="/assets/resized/prof_pic_2023-1400x1146.jpg" srcset="    /assets/resized/prof_pic_2023-480x393.jpg 480w,    /assets/resized/prof_pic_2023-800x655.jpg 800w,    /assets/resized/prof_pic_2023-1400x1146.jpg 1400w,/ assets/img/prof_pic_2023.jpg 1752w">
-
-      
-      
-    </div>
-    
-
-    <div class="clearfix">
-      <p>I am a Research Scientist at Adobe Research, and am interested in machine learning for audio (or other) signal processing. I earned a Ph.D. in Computer Science from the University of Illinois Urbana-Champaign, where I was advised by Prof. <a href="http://paris.cs.illinois.edu/" target="_blank" rel="noopener noreferrer">Paris Smaragdis</a>. My thesis was on adaptive filtering and proposed a new paradigm called meta-adaptive filtering. I also did my B.S. at the University of Illinois Urbana-Champaign in Statistics and Computer Science. Feel free to check out my <a href="/publications/">publications page</a> or my <a href="http://scholar.google.com/citations?user=QwAo-K4AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a> to see what I’ve been up to lately.</p>
-
-<p>I am enthusiastic about collaborating with students through research internships at Adobe Research in San Francisco. The internship program spans 3-4 months during the summer. If you are passionate about applying machine learning, deep learning, or signal processing to audio, I encourage you to get in touch. Please send me your CV along with a brief explanation of your research interests. My Adobe page is <a href="https://research.adobe.com/person/jonah-casebeer/" target="_blank" rel="noopener noreferrer">here</a>.</p>
-
-    </div>
-
-    
-      <div class="news">
-  <h2>news</h2>
-  
-    <div class="table-responsive">
-      <table class="table table-sm table-borderless">
-      
-      
-        <tr>
-          <th scope="row">Mar, 2024</th>
-          <td>
-            
-              My Ph.D. thesis is now available <a href="https://www.ideals.illinois.edu/items/129160" target="_blank" rel="noopener noreferrer">here</a>.
-
-            
-          </td>
-        </tr>
-      
-        <tr>
-          <th scope="row">Nov, 2023</th>
-          <td>
-            
-              I’m helping organize the Hands-free Speech Communication and Microphone Arrays
-(HSCMA) workshop at ICASSP! Website <a href="https://sites.google.com/view/hscma2024" target="_blank" rel="noopener noreferrer">here</a>.
-
-            
-          </td>
-        </tr>
-      
-        <tr>
-          <th scope="row">Nov, 2023</th>
-          <td>
-            
-              I’ve joined the Audio Research team at Adobe Research!
-
-            
-          </td>
-        </tr>
-      
-        <tr>
-          <th scope="row">Oct, 2023</th>
-          <td>
-            
-              I’ve successfully defended my Ph.D. thesis on meta-learning for adaptive filtering!
-
-            
-          </td>
-        </tr>
-      
-        <tr>
-          <th scope="row">Nov, 2022</th>
-          <td>
-            
-              I’ll be giving a talk at the Stanford CCRMA DSP Seminar on 11/18/2022! Details <a href="https://ccrma.stanford.edu/events/meta-af-meta-learning-adaptive-filters" target="_blank" rel="noopener noreferrer">here</a>.
-
-            
-          </td>
-        </tr>
-      
-      </table>
-    </div>
-  
-</div>
-
-    
-
-    
-      <div class="publications">
-  <h2>selected publications</h2>
-  <ol class="bibliography">
-<li>
-<div class="row">
-  <div class="col-sm-2 abbr">
-  
-  </div>
-
-  <div id="casebeer2024scaling" class="col-sm-8">
-    
-      <div class="title">Scaling Up Adaptive Filter Optimizers</div>
-      <div class="author">
-        
-          
-          
-          
-          
-
-          
-            
-              
-                <em>Casebeer, Jonah</em>,
-              
-            
-          
-        
-          
-          
-          
-          
-
-          
-            
-              
-                
-                  Bryan, Nicholas J,
-                
-              
-            
-          
-        
-          
-          
-          
-          
-
-          
-            
-              
-                
-                  and Smaragdis, Paris
-                
-              
-            
-          
-        
-      </div>
-
-      <div class="periodical">
-      
-        <em>arXiv preprint arXiv:2403.00977</em>
-      
-      
-      
-        2024
-      
-      </div>
-    
-
-    <div class="links">
-    
-    
-      <a href="http://arxiv.org/abs/2403.00977" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">arXiv</a>
-    
-    
-    
-    
-    
-    
-    
-      <a href="https://github.com/adobe-research/MetaAF" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">Code</a>
-    
-    
-    
-    
-      <a href="https://jmcasebeer.github.io/metaaf/sms-af" class="btn btn-sm z-depth-0" role="button">Website</a>
-    
-    </div>
-
-    <!-- Hidden abstract block -->
-    
-
-    <!-- Hidden bibtex block -->
-    
-    <span class="Misc" style="color:#0076df"></span>
-  </div>
-</div>
-</li>
-<li>
-<div class="row">
-  <div class="col-sm-2 abbr">
-  
-  </div>
-
-  <div id="casebeer2022metaaf" class="col-sm-8">
-    
-      <div class="title">Meta-AF: Meta-Learning for Adaptive Filters</div>
-      <div class="author">
-        
-          
-          
-          
-          
-
-          
-            
-              
-                <em>Casebeer, Jonah</em>,
-              
-            
-          
-        
-          
-          
-          
-          
-
-          
-            
-              
-                
-                  Bryan, Nicholas J,
-                
-              
-            
-          
-        
-          
-          
-          
-          
-
-          
-            
-              
-                
-                  and Smaragdis, Paris
-                
-              
-            
-          
-        
-      </div>
-
-      <div class="periodical">
-      
-        <em>IEEE/ACM Transactions on Audio, Speech, and Language Processing</em>
-      
-      
-      
-        2023
-      
-      </div>
-    
-
-    <div class="links">
-    
-    
-      <a href="http://arxiv.org/abs/2204.11942" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">arXiv</a>
-    
-    
-    
-    
-    
-    
-    
-      <a href="https://github.com/adobe-research/MetaAF" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">Code</a>
-    
-    
-    
-    
-      <a href="https://jmcasebeer.github.io/projects/metaaf" class="btn btn-sm z-depth-0" role="button">Website</a>
-    
-    </div>
-
-    <!-- Hidden abstract block -->
-    
-
-    <!-- Hidden bibtex block -->
-    
-    <span class="Misc" style="color:#0076df"></span>
-  </div>
-</div>
-</li>
-<li>
-<div class="row">
-  <div class="col-sm-2 abbr">
-  
-  </div>
-
-  <div id="wu2022metalearning" class="col-sm-8">
-    
-      <div class="title">Meta-Learning for Adaptive Filters with Higher-Order Frequency Dependencies</div>
-      <div class="author">
-        
-          
-          
-          
-          
-
-          
-            
-              
-                
-                  Wu, Junkai,
-                
-              
-            
-          
-        
-          
-          
-          
-          
-
-          
-            
-              
-                <em>Casebeer, Jonah</em>,
-              
-            
-          
-        
-          
-          
-          
-          
-
-          
-            
-              
-                
-                  Bryan, Nicholas J.,
-                
-              
-            
-          
-        
-          
-          
-          
-          
-
-          
-            
-              
-                
-                  and Smaragdis, Paris
-                
-              
-            
-          
-        
-      </div>
-
-      <div class="periodical">
-      
-        <em>In IEEE International Workshop on Acoustic Signal Enhancement (IWAENC)</em>
-      
-      
-      
-        2022
-      
-      </div>
-    
-
-    <div class="links">
-    
-    
-      <a href="http://arxiv.org/abs/2209.09955" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">arXiv</a>
-    
-    
-    
-    
-    
-    
-    
-      <a href="https://github.com/adobe-research/MetaAF" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">Code</a>
-    
-    
-    
-    
-      <a href="https://jmcasebeer.github.io/metaaf/higher-order" class="btn btn-sm z-depth-0" role="button">Website</a>
-    
-    </div>
-
-    <!-- Hidden abstract block -->
-    
-
-    <!-- Hidden bibtex block -->
-    
-    <span class="Misc" style="color:#0076df"></span>
-  </div>
-</div>
-</li>
-<li>
-<div class="row">
-  <div class="col-sm-2 abbr">
-  
-  </div>
-
-  <div id="casebeer2021auto" class="col-sm-8">
-    
-      <div class="title">Auto-DSP: Learning to Optimize Acoustic Echo Cancellers</div>
-      <div class="author">
-        
-          
-          
-          
-          
-
-          
-            
-              
-                <em>Casebeer, Jonah</em>,
-              
-            
-          
-        
-          
-          
-          
-          
-
-          
-            
-              
-                
-                  Bryan, Nicholas J,
-                
-              
-            
-          
-        
-          
-          
-          
-          
-
-          
-            
-              
-                
-                  and Smaragdis, Paris
-                
-              
-            
-          
-        
-      </div>
-
-      <div class="periodical">
-      
-        <em>In IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA)</em>
-      
-      
-      
-        2021
-      
-      </div>
-    
-
-    <div class="links">
-    
-    
-      <a href="http://arxiv.org/abs/2110.04284" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">arXiv</a>
-    
-    
-    
-    
-    
-    
-    
-      <a href="https://github.com/jmcasebeer/autodsp" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">Code</a>
-    
-    
-    
-    
-      <a href="https://jmcasebeer.github.io/projects/auto-dsp/" class="btn btn-sm z-depth-0" role="button">Website</a>
-    
-    </div>
-
-    <!-- Hidden abstract block -->
-    
-
-    <!-- Hidden bibtex block -->
-    
-    <span class="Misc" style="color:#0076df"></span>
-  </div>
-</div>
-</li>
-<li>
-<div class="row">
-  <div class="col-sm-2 abbr">
-  
-  </div>
-
-  <div id="casebeer2021enhancing" class="col-sm-8">
-    
-      <div class="title">Enhancing Into the Codec: Noise Robust Speech Coding with Vector-Quantized Autoencoders</div>
-      <div class="author">
-        
-          
-          
-          
-          
-
-          
-            
-              
-                <em>Casebeer, Jonah</em>,
-              
-            
-          
-        
-          
-          
-          
-          
-
-          
-            
-              
-                
-                  Vale, Vinjai,
-                
-              
-            
-          
-        
-          
-          
-          
-          
-
-          
-            
-              
-                
-                  Isik, Umut,
-                
-              
-            
-          
-        
-          
-          
-          
-          
-
-          
-            
-              
-                
-                  Valin, Jean-Marc,
-                
-              
-            
-          
-        
-          
-          
-          
-          
-
-          
-            
-              
-                
-                  Giri, Ritwik,
-                
-              
-            
-          
-        
-          
-          
-          
-          
-
-          
-            
-              
-                
-                  and Krishnaswamy, Arvindh
-                
-              
-            
-          
-        
-      </div>
-
-      <div class="periodical">
-      
-        <em>In IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em>
-      
-      
-      
-        2021
-      
-      </div>
-    
-
-    <div class="links">
-    
-    
-      <a href="http://arxiv.org/abs/2102.06610" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">arXiv</a>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </div>
-
-    <!-- Hidden abstract block -->
-    
-
-    <!-- Hidden bibtex block -->
-    
-    <span class="Misc" style="color:#0076df"></span>
-  </div>
-</div>
-</li>
-<li>
-<div class="row">
-  <div class="col-sm-2 abbr">
-  
-  </div>
-
-  <div id="casebeer2019deep" class="col-sm-8">
-    
-      <div class="title">Deep Tensor Factorization for Spatially-Aware Scene Decomposition</div>
-      <div class="author">
-        
-          
-          
-          
-          
-
-          
-            
-              
-                <em>Casebeer, Jonah</em>,
-              
-            
-          
-        
-          
-          
-          
-          
-
-          
-            
-              
-                
-                  Colomb, Michael,
-                
-              
-            
-          
-        
-          
-          
-          
-          
-
-          
-            
-              
-                
-                  and Smaragdis, Paris
-                
-              
-            
-          
-        
-      </div>
-
-      <div class="periodical">
-      
-        <em>In IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA)</em>
-      
-      
-      
-        2019
-      
-      </div>
-    
-
-    <div class="links">
-    
-    
-      <a href="http://arxiv.org/abs/1905.01391" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">arXiv</a>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-      <a href="https://jmcasebeer.github.io/projects/dntf" class="btn btn-sm z-depth-0" role="button">Website</a>
-    
-    </div>
-
-    <!-- Hidden abstract block -->
-    
-
-    <!-- Hidden bibtex block -->
-    
-    <span class="Misc" style="color:#0076df"></span>
-  </div>
-</div>
-</li>
-</ol>
-</div>
-
-    
-
-    
-    <div class="social">
-      <div class="contact-icons">
-        <a href="mailto:%6A%6F%6E%61%68.%63%61%73%65%62%65%65%72@%69%65%65%65.%6F%72%67"><i class="fas fa-envelope"></i></a>
-
-<a href="https://scholar.google.com/citations?user=QwAo-K4AAAAJ&amp;hl" title="Google Scholar" target="_blank" rel="noopener noreferrer"><i class="ai ai-google-scholar"></i></a>
-
-
-<a href="https://github.com/jmcasebeer" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-
-<a href="https://twitter.com/CasebeerJonah" title="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-      <div class="contact-note"></div>
-    </div>
-    
-  </article>
-
-</div>
-
-    </div>
-
-    <!-- Footer -->
-
-    
-<footer class="fixed-bottom">
-  <div class="container mt-0">
-    © Copyright 2024 Jonah  Casebeer.
-    
-    
-    
-  </div>
-</footer>
-
-
-
-  </body>
-
-  <!-- jQuery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-
-  <!-- Bootsrap & MDB scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js" integrity="sha512-eUQ9hGdLjBjY3F41CScH3UX+4JDSI9zXeroz7hJ+RteoCaY+GP/LDoM8AO+Pt+DRFw3nXqsjh9Zsts8hnYv8/A==" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" integrity="sha512-Mug9KHKmroQFMLm93zGrjhibM2z2Obg9l6qFG2qKjXEXkMp/VDkI4uju9m4QKPjWSwQ6O2qzZEnJDEeCw0Blcw==" crossorigin="anonymous"></script>
-
-  
-<!-- Mansory & imagesLoaded -->
-<script defer src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script defer src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-<script defer src="/assets/js/mansory.js" type="text/javascript"></script>
-
-
-  
-
-
-<!-- Medium Zoom JS -->
-<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
-<script src="/assets/js/zoom.js"></script>
-
-
-<!-- Load Common JS -->
-<script src="/assets/js/common.js"></script>
-
-  
-<!-- MathJax -->
-<script type="text/javascript">
-  window.MathJax = {
-    tex: {
-      tags: 'ams'
-    }
-  };
-</script>
-<script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
-<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-
-
-  
-
-
-
-
+</body>
 
 </html>
