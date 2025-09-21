@@ -6,8 +6,8 @@
     <meta name="description"
         content="Jonah Casebeer's personal website showcasing research, publications, and projects.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js"></script>
     <link rel="icon" href="/assets/dft.png" type="image/png">
 </head>
 
@@ -32,7 +32,8 @@
             <div class="abstract-title">About Me</div>
             <p>
                 I am a research scientist in the Music AI group at Adobe Research, focusing on machine learning for
-                signal processing. My research interests center on optimization and representation learning for audio
+                audio signal processing. My research interests are on optimization and representation learning for
+                audio
                 generation, editing, and enhancement. I received both my Ph.D. in Computer Science and B.S. in
                 Statistics and Computer Science from the University of Illinois Urbana-Champaign, where I was advised by
                 Prof. Paris Smaragdis.
@@ -57,21 +58,8 @@
                 </div>
                 <div class="publication-details">
                     <p>Bralios, Dimitrios and <strong>Casebeer, Jonah</strong></p>
-                    <p><em>Preprint</em></p>
-                    <p><em>Abstract:</em> Neural audio codecs and autoencoders have emerged as versatile models for
-                        audio compression, transmission, feature-extraction, and latent-space generation. However, a key
-                        limitation is that most are trained to maximize reconstruction fidelity, often neglecting the
-                        specific latent structure necessary for optimal performance in diverse downstream applications.
-                        We propose a simple, post-hoc framework to address this by modifying the bottleneck of a
-                        pre-trained autoencoder. Our method introduces a "Re-Bottleneck", an inner bottleneck trained
-                        exclusively through latent space losses to instill user-defined structure. We demonstrate the
-                        framework's effectiveness in three experiments. First, we enforce an ordering on latent channels
-                        without sacrificing reconstruction quality. Second, we align latents with semantic embeddings,
-                        analyzing the impact on downstream diffusion modeling. Third, we introduce equivariance,
-                        ensuring that a filtering operation on the input waveform directly corresponds to a specific
-                        transformation in the latent space. Ultimately, our Re-Bottleneck framework offers a flexible
-                        and efficient way to tailor representations of neural audio models, enabling them to seamlessly
-                        meet the varied demands of different applications with minimal additional training.</p>
+                    <p><em>IEEE International Workshop on Machine Learning for Signal Processing (MLSP)</em></p>
+                    <p>Best Paper Award</p>
                     <div class="publication-links">
                         <a href="https://arxiv.org/pdf/2507.07867">[PDF]</a>
                         <a href="https://arxiv.org/abs/2507.07867">[arXiv]</a>
@@ -86,27 +74,7 @@
                 <div class="publication-details">
                     <p>Bralios, Dimitrios and Smaragdis, Paris and <strong>Casebeer, Jonah</strong>
                     </p>
-                    <p><em>Preprint</em></p>
-                    <p><em>Abstract:</em>Neural audio autoencoders create compact latent
-                        representations that preserve perceptually important information, serving
-                        as the foundation for both modern audio compression systems and
-                        generation approaches like next-token prediction and latent diffusion.
-                        Despite their prevalence, most audio processing operations, such as spatial
-                        and spectral up-sampling, still inefficiently operate on raw waveforms
-                        or spectral representations rather than directly on these compressed
-                        representations. We propose a framework that performs audio processing
-                        operations entirely within an autoencoder's latent space, eliminating
-                        the need to decode to raw audio formats. Our approach dramatically
-                        simplifies training by operating solely in the latent domain, with a
-                        latent L1 reconstruction term, augmented by a single latent adversarial
-                        discriminator. This contrasts sharply with raw-audio methods that typically
-                        require complex combinations of multi-scale losses and discriminators.
-                        Through experiments in bandwidth extension and mono-to-stereo
-                        upmixing, we demonstrate computational efficiency gains of up to 100×
-                        while maintaining quality comparable to post-processing on raw audio.
-                        This work establishes a more efficient paradigm for audio processing
-                        pipelines that already incorporate autoencoders, enabling significantly
-                        faster and more resource-efficient workflows across various audio tasks.</p>
+                    <p><em>IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA)</em></p>
                     <div class="publication-links">
                         <a href="https://arxiv.org/pdf/2506.00681">[PDF]</a>
                         <a href="https://arxiv.org/abs/2506.00681">[arXiv]</a>
@@ -122,28 +90,6 @@
                     <p>Bai, Yatong and <strong>Casebeer, Jonah</strong> and Sojoudi, Somayeh and Bryan, Nicholas J
                     </p>
                     <p><em>Preprint</em></p>
-                    <p><em>Abstract:</em>We present Distributional RewArds for Generative OptimizatioN (DRAGON), a
-                        versatile framework for fine-tuning media generation models towards a desired outcome. Compared
-                        with traditional reinforcement learning with human feedback (RLHF) or pairwise preference
-                        approaches such as direct preference optimization (DPO), DRAGON is more flexible. It can
-                        optimize reward functions that evaluate either individual examples or distributions of them,
-                        making it compatible with a broad spectrum of instance-wise, instance-to-distribution, and
-                        distribution-to-distribution rewards. Leveraging this versatility, we construct novel reward
-                        functions by selecting an encoder and a set of reference examples to create an exemplar
-                        distribution. When cross-modality encoders such as CLAP are used, the reference examples
-                        may be of a different modality (e.g., text versus audio). Then, DRAGON gathers online and
-                        on-policy generations, scores them to construct a positive demonstration set and a negative
-                        set, and leverages the contrast between the two sets to maximize the reward. For evaluation,
-                        we fine-tune an audio-domain text-to-music diffusion model with 20 different reward func-
-                        tions, including a custom music aesthetics model, CLAP score, Vendi diversity, and Fréchet
-                        audio distance (FAD). We further compare instance-wise (per-song) and full-dataset FAD
-                        settings while ablating multiple FAD encoders and reference sets. Over all 20 target re-
-                        wards, DRAGON achieves an 81.45% average win rate. Moreover, reward functions based
-                        on exemplar sets indeed enhance generations and are comparable to model-based rewards.
-                        With an appropriate exemplar set, DRAGON achieves a 60.95% human-voted music quality
-                        win rate without training on human preference annotations. As such, DRAGON exhibits a
-                        new approach to designing and optimizing reward functions for improving human-perceived
-                        quality. Example generations can be found at https://ml-dragon.github.io/web.</p>
                     <div class="publication-links">
                         <a href="https://arxiv.org/pdf/2504.15217">[PDF]</a>
                         <a href="https://arxiv.org/abs/2504.15217">[arXiv]</a>
@@ -159,21 +105,7 @@
                     <p>Zhang, Yitian and Mai, Long and Mahapatra, Aniruddha and Bourgin, David and Hong, Yicong and
                         <strong>Casebeer, Jonah</strong> and Liu, Feng and Fu, Yun
                     </p>
-                    <p><em>Preprint</em></p>
-                    <p><em>Abstract:</em>We present a novel perspective on learning video embedders for generative
-                        modeling: rather than requiring an exact reproduction of an input video, an effective embedder
-                        should focus on synthesizing visually plausible reconstructions. This relaxed criterion enables
-                        substantial improvements in compression ratios without compromising the quality of downstream
-                        generative models. Specifically, we propose replacing the conventional encoder-decoder video
-                        embedder with an encoder-generator framework that employs a diffusion transformer (DiT) to
-                        synthesize missing details from a compact latent space. Therein, we develop a dedicated latent
-                        conditioning module to condition the DiT decoder on the encoded video latent embedding. Our
-                        experiments demonstrate that our approach enables superior encoding-decoding performance
-                        compared to state-of-the-art methods, particularly as the compression ratio increases. To
-                        demonstrate the efficacy of our approach, we report results from our video embedders achieving a
-                        temporal compression ratio of up to 32x (8x higher than leading video embedders) and validate
-                        the robustness of this ultra-compact latent space for text-to-video generation, providing a
-                        significant efficiency boost in latent diffusion model training and inference.</p>
+                    <p><em>International Conference on Computer Vision (ICCV)</em></p>
                     <div class="publication-links">
                         <a href="https://arxiv.org/pdf/2503.08665">[PDF]</a>
                         <a href="https://arxiv.org/abs/2503.08665">[arXiv]</a>
@@ -189,20 +121,7 @@
                 <div class="publication-details">
                     <p>Novack, Zachary and Zhu, Ge and <strong>Casebeer, Jonah</strong> and McAuley, Julian and
                         Berg-Kirkpatrick, Taylor and Bryan, Nicholas J</p>
-                    <p><em>Preprint</em></p>
-                    <p><em>Abstract:</em> Despite advances in diffusion-based text-to-music (TTM) methods, efficient,
-                        high-quality generation remains a challenge. We introduce Presto!, an approach to inference
-                        acceleration for score-based diffusion transformers via reducing both sampling steps and cost
-                        per step. To reduce steps, we develop a new score-based distribution matching distillation (DMD)
-                        method for the EDM-family of diffusion models, the first GAN-based distillation method for TTM.
-                        To reduce the cost per step, we develop a simple, but powerful improvement to a recent layer
-                        distillation method that improves learning via better preserving hidden state variance. Finally,
-                        we combine our step and layer distillation methods together for a dual-faceted approach. We
-                        evaluate our step and layer distillation methods independently and show each yield best-in-class
-                        performance. Our combined distillation method can generate high-quality outputs with improved
-                        diversity, accelerating our base model by 10-18x (230/435ms latency for 32 second mono/stereo
-                        44.1kHz, 15x faster than comparable SOTA) -- the fastest high-quality TTM to our knowledge.
-                        Sound examples can be found at this https URL.</p>
+                    <p><em>International Conference of Learning Representations (ICLR)</em></p>
                     <div class="publication-links">
                         <a href="https://arxiv.org/pdf/2410.05167">[PDF]</a>
                         <a href="https://arxiv.org/abs/2410.05167">[arXiv]</a>
@@ -222,7 +141,6 @@
                         <a href="https://arxiv.org/pdf/2403.00977">[PDF]</a>
                         <a href="https://arxiv.org/abs/2403.00977">[arXiv]</a>
                         <a href="https://github.com/adobe-research/MetaAF">[Code]</a>
-                        <a href="#">[Demo]</a>
                     </div>
                 </div>
             </div>
@@ -234,19 +152,6 @@
                 <div class="publication-details">
                     <p><strong>Casebeer, Jonah</strong> and Wu, Junkai and Smaragdis, Paris</p>
                     <p><em>IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em></p>
-                    <p><em>Abstract:</em> Adaptive filters (AFs) are vital for enhancing the performance of downstream
-                        tasks, such as speech recognition, sound event detection, and keyword spotting. However,
-                        traditional AF design prioritizes isolated signal-level objectives, often overlooking downstream
-                        task performance. This can lead to suboptimal performance. Recent research has leveraged
-                        meta-learning to automatically learn AF update rules from data, alleviating the need for manual
-                        tuning when using simple signal-level objectives. This paper improves the Meta-AF framework by
-                        expanding it to support end-to-end training for arbitrary downstream tasks. We focus on
-                        classification tasks, where we introduce a novel training methodology that harnesses
-                        self-supervision and classifier feedback. We evaluate our approach on the combined task of
-                        acoustic echo cancellation and keyword spotting. Our findings demonstrate consistent performance
-                        improvements with both pre-trained and joint-trained keyword spotting models across synthetic
-                        and real playback. Notably, these improvements come without requiring additional tuning,
-                        increased inference-time complexity, or reliance on oracle signal-level training data.</p>
                     <div class="publication-links">
                         <a href="https://arxiv.org/pdf/2312.10605">[PDF]</a>
                         <a href="https://arxiv.org/abs/2312.10605">[arXiv]</a>
@@ -258,7 +163,7 @@
             <div class="publication-year">2023</div>
             <div class="publication-item">
                 <div class="publication-title">
-                    Meta-Learning for Adaptive Filtering - Ph.D. Thesis
+                    Meta-Learning for Adaptive Filtering — Ph.D. Thesis
                 </div>
                 <div class="publication-details">
                     <p><strong>Casebeer, Jonah</strong></p>
@@ -274,13 +179,12 @@
                     Meta-AF: Meta-Learning for Adaptive Filters
                 </div>
                 <div class="publication-details">
-                    <p><strong>Casebeer, Jonah</strong> and Bryan, Nicholas J and Smaragdis, Paris</p>
+                    <p><strong>Casebeer, Jonah</strong> and Bryan, Nicholas J. and Smaragdis, Paris</p>
                     <p><em>IEEE/ACM Transactions on Audio, Speech, and Language Processing</em></p>
                     <div class="publication-links">
                         <a href="https://arxiv.org/pdf/2204.11942">[PDF]</a>
                         <a href="https://arxiv.org/abs/2204.11942">[arXiv]</a>
                         <a href="https://github.com/adobe-research/MetaAF">[Code]</a>
-                        <!-- <a href="https://jmcasebeer.github.io/projects/metaaf">[Website]</a> -->
                     </div>
                 </div>
             </div>
@@ -297,7 +201,6 @@
                         <a href="https://arxiv.org/pdf/2209.09955">[PDF]</a>
                         <a href="https://arxiv.org/abs/2209.09955">[arXiv]</a>
                         <a href="https://github.com/adobe-research/MetaAF">[Code]</a>
-                        <!-- <a href="https://jmcasebeer.github.io/metaaf/higher-order">[Demo]</a> -->
                     </div>
                 </div>
             </div>
@@ -384,7 +287,7 @@
             <div class="publication-year">2020</div>
             <div class="publication-item">
                 <div class="publication-title">
-                    Communication-Cost Aware Microphone Selection For Neural Speech Enhancement with Ad-hoc Microphone
+                    Communication-Cost Aware Microphone Selection for Neural Speech Enhancement with Ad-Hoc Microphone
                     Arrays
                 </div>
                 <div class="publication-details">
@@ -394,7 +297,6 @@
                         <a href="https://arxiv.org/pdf/2011.07348">[PDF]</a>
                         <a href="https://arxiv.org/abs/2011.07348">[arXiv]</a>
                         <a href="https://github.com/jmcasebeer/cost_aware_enhancement">[Code]</a>
-                        <!-- <a href="https://jmcasebeer.github.io/projects/camse">[Demo]</a> -->
                     </div>
                 </div>
             </div>
@@ -426,7 +328,6 @@
                     <div class="publication-links">
                         <a href="https://arxiv.org/pdf/1905.01391">[PDF]</a>
                         <a href="https://arxiv.org/abs/1905.01391">[arXiv]</a>
-                        <!-- <a href="https://jmcasebeer.github.io/projects/dntf">[Demo]</a> -->
                     </div>
                 </div>
             </div>
@@ -451,7 +352,7 @@
                     Multipath-Enabled Private Audio with Noise
                 </div>
                 <div class="publication-details">
-                    <p>Chaman, Anadi and Liu, Yu-Jeh and <strong>Casebeer, Jonah</strong> and Dokmani{\'c}, Ivan</p>
+                    <p>Chaman, Anadi and Liu, Yu-Jeh and <strong>Casebeer, Jonah</strong> and Dokmanić, Ivan</p>
                     <p><em>IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em></p>
                     <div class="publication-links">
                         <a href="https://arxiv.org/pdf/1811.07065">[PDF]</a>
@@ -480,11 +381,11 @@
             <div class="publication-year">2018</div>
             <div class="publication-item">
                 <div class="publication-title">
-                    Cocktails, but no party: multipath-enabled private audio
+                    Cocktails, but No Party: Multipath-Enabled Private Audio
                 </div>
                 <div class="publication-details">
-                    <p>Liu, Yu-Jeh and <strong>Casebeer, Jonah</strong> and Dokmani{\'c}, Ivan</p>
-                    <p><em>IEEE International Workshop on Acoustic Signal Enhancement</em></p>
+                    <p>Liu, Yu-Jeh and <strong>Casebeer, Jonah</strong> and Dokmanić, Ivan</p>
+                    <p><em>IEEE International Workshop on Acoustic Signal Enhancement (IWAENC)</em></p>
                     <div class="publication-links">
                         <a href="https://arxiv.org/pdf/1809.05862">[PDF]</a>
                         <a href="https://arxiv.org/abs/1809.05862">[arXiv]</a>
@@ -499,11 +400,13 @@
                     Verbal Protest Recognition in Children with Autism
                 </div>
                 <div class="publication-details">
-                    <p><strong>Casebeer, J</strong> and Sarker, H and Dhuliawala, M and Fay, N and Pietrowicz, M and
-                        Das, A
+                    <p><strong>Casebeer, Jonah</strong> and Sarker, Hillol and Dhuliawala, Murtaza and Fay, Nicholas and
+                        Pietrowicz, Mary and
+                        Das, Amar
                     </p>
                     <p><em>IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em></p>
                     <div class="publication-links">
+                        <a href="https://ieeexplore.ieee.org/document/8462514">[PDF]</a>
                         <a
                             href="https://sigport.org/sites/default/files/docs/icassp2018_verbal_protest_poster.final__0.pdf">[Poster]</a>
                     </div>
@@ -524,10 +427,38 @@
                 </div>
             </div>
 
+            <div class="publication-item">
+                <div class="publication-title">
+                    End-to-End Source Separation with Adaptive Front-Ends
+                </div>
+                <div class="publication-details">
+                    <p>Venkataramani, Shrikant and <strong>Casebeer, Jonah</strong> and Smaragdis, Paris</p>
+                    <p><em>Asilomar Conference on Signals, Systems and Computers</em></p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/1705.02514">[PDF]</a>
+                        <a href="https://arxiv.org/abs/1705.02514">[arXiv]</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="publication-year">2017</div>
+            <div class="publication-item">
+                <div class="publication-title">
+                    Adaptive Front-Ends for End-to-End Source Separation
+                </div>
+                <div class="publication-details">
+                    <p>Venkataramani, Shrikant and <strong>Casebeer, Jonah</strong> and Smaragdis, Paris</p>
+                    <p><em>NeurIPS ML4Audio Workshop</em></p>
+                    <div class="publication-links">
+                        <a href="https://paris.cs.illinois.edu/pubs/shrikant-nips2017.pdf">[PDF]</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <div class="footnote">
-            Last updated: August 2025
+            Last updated: Sep 2025
         </div>
     </div>
 </body>
