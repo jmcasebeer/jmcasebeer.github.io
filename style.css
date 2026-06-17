@@ -1,9 +1,8 @@
 :root {
-    --burgundy: #800020;
-    --burgundy-light: #aa314d;
-    --burgundy-dark: #600018;
-    --paper: #fffff8;
-    --link: #900020;
+    --primary: #000000;
+    --accent: #555555;
+    --paper: #ffffff;
+    --link: #000000;
     --text-secondary: rgba(0, 0, 0, 0.7);
     /* LaTeX measurements */
     --pagewidth: 8.5in;
@@ -64,11 +63,7 @@ h3 {
     margin-bottom: var(--space-md);
     font-weight: normal;
     letter-spacing: 0.02em;
-    background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+    color: var(--primary);
 }
 
 h1 {
@@ -80,7 +75,7 @@ h1 {
 
 h2 {
     font-size: 16pt;
-    border-bottom: 1px solid var(--burgundy);
+    border-bottom: 1px solid var(--primary);
     padding-bottom: var(--space-xs);
     margin-top: var(--space-lg);
 }
@@ -112,13 +107,13 @@ a {
 }
 
 a:hover {
-    color: var(--burgundy-light);
+    color: var(--accent);
     text-decoration: underline;
 }
 
 .social-links {
     margin: var(--space-lg) 0;
-    font-size: 11pt;
+    font-size: 12pt;
 }
 
 .social-links a {
@@ -131,14 +126,15 @@ a:hover {
 }
 
 .social-links a:hover {
-    border-bottom-color: var(--link);
+    color: var(--accent);
+    border-bottom-color: var(--accent);
 }
 
 .abstract {
     margin: var(--space-lg) 0;
     padding: var(--space-lg);
-    background: rgba(128, 0, 32, 0.02);
-    border-left: 3px solid var(--burgundy);
+    background: rgba(0, 0, 0, 0.02);
+    border-left: 3px solid var(--primary);
     font-size: 11pt;
     line-height: 1.7;
 }
@@ -146,12 +142,12 @@ a:hover {
 .abstract-title {
     font-size: 14pt;
     font-weight: bold;
-    color: var(--burgundy);
+    color: var(--primary);
     margin-bottom: var(--space-sm);
 }
 
 .publication-year {
-    color: var(--burgundy);
+    color: var(--primary);
     font-size: 14pt;
     margin: 0 0 var(--space-md) 0;
     font-variant: small-caps;
@@ -161,15 +157,15 @@ a:hover {
 .publication-item {
     margin: var(--space-md) 0;
     padding: var(--space-sm);
-    background: rgba(128, 0, 32, 0.015);
+    background: rgba(0, 0, 0, 0.015);
     border-radius: 3px;
     transition: all 0.3s ease;
     border-left: 2px solid transparent;
 }
 
 .publication-item:hover {
-    background: rgba(128, 0, 32, 0.03);
-    border-left: 3px solid var(--burgundy);
+    background: rgba(0, 0, 0, 0.03);
+    border-left: 3px solid var(--primary);
 
 }
 
@@ -184,7 +180,7 @@ a:hover {
 }
 
 .publication-title:hover {
-    color: var(--burgundy-light);
+    color: var(--accent);
     transition: color 0.3s ease;
 }
 
@@ -195,7 +191,7 @@ a:hover {
     top: 50%;
     transform: translateY(-50%);
     font-size: 1.0rem;
-    color: var(--burgundy);
+    color: var(--primary);
     transition: transform 0.2s ease;
 }
 
@@ -207,7 +203,7 @@ a:hover {
     display: none;
     margin-top: var(--space-md);
     padding-top: var(--space-sm);
-    border-top: 1px solid rgba(128, 0, 32, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     color: var(--text-secondary);
     font-size: 11pt;
 }
@@ -249,7 +245,7 @@ a:hover {
 .footnote {
     margin-top: var(--space-xl);
     padding-top: var(--space-sm);
-    border-top: 1px solid rgba(128, 0, 32, 0.2);
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
     color: var(--text-secondary);
     font-size: 9pt;
     font-style: italic;
