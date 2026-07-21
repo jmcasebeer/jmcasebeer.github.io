@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher-Order Meta-AF</title>
+    <meta name="description" content="Meta-Learning for Adaptive Filters with Higher-Order Frequency Dependencies">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js"></script>
+</head>
+<body>
+    <div class="page">
+        <div class="title-section">
+            <h1>Higher-Order Meta-AF</h1>
+            <div class="institution">Meta-Learning for Adaptive Filters with Higher-Order Frequency Dependencies</div>
+            <div class="social-links">
+                <a href="https://arxiv.org/abs/2209.09955" target="_blank">arXiv</a>
+                <a href="https://arxiv.org/pdf/2209.09955.pdf" target="_blank">PDF</a>
+                <a href="https://github.com/adobe-research/MetaAF" target="_blank">GitHub</a>
+            </div>
+        </div>
+
+        <div class="abstract">
+            <div class="abstract-title">Overview</div>
+            <p>Adaptive filters are applicable to many signal processing tasks including acoustic echo cancellation, beamforming, and more. Adaptive filters are typically controlled using algorithms such as least-mean squares(LMS), recursive least squares(RLS), or Kalman filter updates. Such models are often applied in the frequency domain, assume frequency independent processing, and do not exploit higher-order frequency dependencies, for simplicity. Recent work on meta-adaptive filters, however, has shown that we can control filter adaptation using neural networks without manual derivation, motivating new work to exploit such information. In this work, we present higher-order meta-adaptive filters, a key improvement to meta-adaptive filters that incorporates higher-order frequency dependencies. We demonstrate our approach on acoustic echo cancellation and develop a family of filters that yield multi-dB improvements over competitive baselines, and are at least an order-of-magnitude less complex. Moreover, we show our improvements hold with or without a downstream speech enhancer.</p>
+        </div>
+
+        <div class="section">
+            <h2>Links</h2>
+            <ul>
+                <li><a href="https://arxiv.org/abs/2209.09955" target="_blank">arXiv</a></li>
+                <li><a href="https://arxiv.org/pdf/2209.09955.pdf" target="_blank">arXiv pdf</a></li>
+                <li><a href="https://github.com/adobe-research/MetaAF" target="_blank">GitHub repo</a></li>
+                <li><a href="https://twitter.com/CasebeerJonah/status/1573058398673072128" target="_blank">Twitter Thread</a></li>
+            </ul>
+            <p>For more details, please see: <a href="https://arxiv.org/abs/2209.09955" target="_blank">“Meta-Learning for Adaptive Filters with Higher-Order Frequency Dependencies”</a>, <a href="https://www.linkedin.com/in/junkai-wu-19015b198/" target="_blank">Junkai Wu</a>, <a href="https://jmcasebeer.github.io" target="_blank">Jonah Casebeer</a>, <a href="https://ccrma.stanford.edu/~njb/" target="_blank">Nicholas J. Bryan</a>, and <a href="https://paris.cs.illinois.edu/" target="_blank">Paris Smaragdis</a>, arXiv, 2022. If you use ideas or code from this work, please cite our paper:</p>
+            <pre><code>@article{wu2022metalearning,
+  title={Meta-Learning for Adaptive Filters with Higher-Order Frequency Dependencies},
+  author={Wu, Junkai and Casebeer, Jonah and Bryan, Nicholas J. and Smaragdis, Paris},
+  booktitle={IEEE International Workshop on Acoustic Signal Enhancement (IWAENC)},
+  year={2022},
+}</code></pre>
+            <p>We release code and model checkpoints using the <code>metaaf</code> python package developed for this work. For demos of the code, setup instructions, and more, check out the <a href="https://github.com/adobe-research/MetaAF" target="_blank">GitHub repo</a>. To listen to model outputs, keep scrolling.</p>
+        </div>
+
+        <div class="section">
+            <h2>Demo Files</h2>
+            <p>We release model inputs and outputs for both the linear acoustic echo canceller (AEC) as well as the deep neural network noise suppressor (DNN-NS) post-processor. These results are for all models shown in figure 4 of the paper. When applicable, the top audio file is the output of the linear AEC and the bottom is the output of the DNN-NS post filter. All files contain double-talk and may contain nonlinearities and near/far-end noise.</p>
+            <table style="width:100%; border-collapse:collapse; font-size:10pt;">
+                <tr>
+                    <th style="border:1px solid #bbb; padding:0.25rem; text-align:left;">Near-end</th>
+                    <th style="border:1px solid #bbb; padding:0.25rem; text-align:left;">Far-end</th>
+                    <th style="border:1px solid #bbb; padding:0.25rem; text-align:left;">Near-end Speech</th>
+                    <th style="border:1px solid #bbb; padding:0.25rem; text-align:left;">NLMS</th>
+                    <th style="border:1px solid #bbb; padding:0.25rem; text-align:left;">RLS</th>
+                    <th style="border:1px solid #bbb; padding:0.25rem; text-align:left;">Kalman Filter</th>
+                    <th style="border:1px solid #bbb; padding:0.25rem; text-align:left;">Only DNN-NS</th>
+                    <th style="border:1px solid #bbb; padding:0.25rem; text-align:left;">Diag. Meta-AF</th>
+                    <th style="border:1px solid #bbb; padding:0.25rem; text-align:left;"><b>Banded-9 Meta-AF</b></th>
+                    <th style="border:1px solid #bbb; padding:0.25rem; text-align:left;"><b>Banded-3 Meta-AF</b></th>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/0/nearend_mix.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/0/farend_speech.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/0/nearend_speech.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/0/nlms/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/0/nlms/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/0/rls/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/0/rls/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/0/kf/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/0/kf/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/0/dnn_res/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/0/diag/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/0/diag/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/0/banded9/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/0/banded9/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/0/banded3/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/0/banded3/res_out.wav"></audio></td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/1/nearend_mix.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/1/farend_speech.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/1/nearend_speech.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/1/nlms/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/1/nlms/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/1/rls/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/1/rls/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/1/kf/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/1/kf/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/1/dnn_res/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/1/diag/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/1/diag/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/1/banded9/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/1/banded9/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/1/banded3/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/1/banded3/res_out.wav"></audio></td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/2/nearend_mix.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/2/farend_speech.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/2/nearend_speech.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/2/nlms/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/2/nlms/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/2/rls/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/2/rls/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/2/kf/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/2/kf/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/2/dnn_res/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/2/diag/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/2/diag/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/2/banded9/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/2/banded9/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/2/banded3/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/2/banded3/res_out.wav"></audio></td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/3/nearend_mix.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/3/farend_speech.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/3/nearend_speech.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/3/nlms/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/3/nlms/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/3/rls/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/3/rls/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/3/kf/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/3/kf/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/3/dnn_res/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/3/diag/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/3/diag/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/3/banded9/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/3/banded9/res_out.wav"></audio></td>
+                    <td style="border:1px solid #bbb; padding:0.25rem;"><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/3/banded3/aec_out.wav"></audio><audio controls style="width:90px;"><source src="../assets/audio/ho-meta-aec/3/banded3/res_out.wav"></audio></td>
+                </tr>
+            </table>
+            <p>These samples are all generated using the Meta-AF codebase in this <a href="https://github.com/adobe-research/MetaAF" target="_blank">GitHub repo</a>. The code and checkpoints have been released as an add-on to the <a href="https://github.com/adobe-research/MetaAF" target="_blank">Meta-AF repository</a>. You may also be interested in checking out the initial Meta-AF <a href="https://www.youtube.com/watch?v=incb1QNSvW8" target="_blank">video</a>, <a href="https://arxiv.org/abs/2204.11942" target="_blank">pre-print</a>, <a href="https://github.com/adobe-research/MetaAF" target="_blank">code</a>, <a href="../demos/">demos</a>, and <a href="../">website</a>.</p>
+        </div>
+
+        <div class="footnote">Last updated: July 2026</div>
+    </div>
+</body>
+</html>

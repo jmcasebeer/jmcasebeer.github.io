@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta-AF Demos</title>
+    <meta name="description" content="Meta-AF demo page with audio examples for acoustic echo cancellation, equalization, dereverberation, and beamforming.">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js"></script>
+</head>
+<body>
+    <div class="page">
+        <div class="title-section">
+            <h1>Meta-AF Demos</h1>
+            <div class="institution">Meta-Learning for Adaptive Filters</div>
+            <div class="social-links">
+                <a href="../" target="_self">Overview</a>
+                <a href="https://arxiv.org/abs/2204.11942" target="_blank">Paper</a>
+                <a href="https://github.com/adobe-research/MetaAF" target="_blank">GitHub</a>
+            </div>
+        </div>
+
+        <div class="abstract">
+            <div class="abstract-title">Overview</div>
+            <p>We release the inputs, targets, and results for five samples in the test set of each adaptive filter task for all models. These samples are all generated using the Meta-AF codebase in this <a href="https://github.com/adobe-research/MetaAF" target="_blank">GitHub repo</a>. Please consult our <a href="https://arxiv.org/abs/2204.11942" target="_blank">paper</a> for any experimental configuration details as well as descriptions of our baselines.</p>
+            <p>The full legacy demo set is now mirrored here with the same content structure and local asset paths.</p>
+        </div>
+
+        <div id="demo-sections"></div>
+
+        <div class="section">
+            <h2>Related Pages</h2>
+            <ul>
+                <li><a href="../higher-order/" target="_self">Higher-Order Meta-AF</a></li>
+                <li><a href="../kws-af/" target="_self">Classification Trained AFs</a></li>
+                <li><a href="../sms-af/" target="_self">Supervised Multi-Step AFs</a></li>
+            </ul>
+        </div>
+
+        <div class="footnote">Last updated: July 2026</div>
+    </div>
+
+    <style>
+        .demo-details { margin: 1rem 0 1.25rem; }
+        .demo-details summary { cursor: pointer; font-weight: 600; }
+        .demo-content { margin-top: 0.75rem; }
+        .demo-table { width: 100%; border-collapse: collapse; font-size: 10pt; }
+        .demo-table th, .demo-table td { border: 1px solid #bbb; padding: 0.25rem; text-align: left; vertical-align: top; }
+        .demo-table audio { width: 90px; }
+        .demo-image { width: 100%; display: block; margin: 1rem auto; }
+    </style>
+
+    <script>
+        const demoSections = [
+            {
+                title: 'Acoustic Echo Cancellation',
+                variants: [
+                    {
+                        summary: 'Single-Talk',
+                        image: '../assets/img/meta-af/aec_single_talk_raw.jpg',
+                        note: '*STOI is zero since the near-end speech is silent.',
+                        columns: ['Near-end', 'Far-end', 'Near-end Speech', 'Speex', 'LMS', 'RMSProp', 'NLMS', 'BD-RLS', 'D-KF', '<b>Meta-AEC</b>'],
+                        base: '../assets/audio/meta-af/aec_single_talk_raw',
+                        files: ['d.mp3', 'u.mp3', 's.mp3', 'speex.mp3', 'aec_combo_lms_mdf.mp3', 'aec_combo_rms_mdf.mp3', 'aec_combo_nlms_mdf.mp3', 'aec_combo_rls_mdf.mp3', 'aec_combo_kf_mdf.mp3', 'meta_aec_16_combo_rl_4_1024_512_r2.mp3']
+                    },
+                    {
+                        summary: 'Double-Talk',
+                        image: '../assets/img/meta-af/aec_double_talk_raw.jpg',
+                        columns: ['Near-end', 'Far-end', 'Near-end Speech', 'Speex', 'LMS', 'RMSProp', 'NLMS', 'BD-RLS', 'D-KF', '<b>Meta-AEC</b>'],
+                        base: '../assets/audio/meta-af/aec_double_talk_raw',
+                        files: ['d.mp3', 'u.mp3', 's.mp3', 'speex.mp3', 'aec_combo_lms_mdf.mp3', 'aec_combo_rms_mdf.mp3', 'aec_combo_nlms_mdf.mp3', 'aec_combo_rls_mdf.mp3', 'aec_combo_kf_mdf.mp3', 'meta_aec_16_combo_rl_4_1024_512_r2.mp3']
+                    },
+                    {
+                        summary: 'Double-Talk with Path Change',
+                        image: '../assets/img/meta-af/aec_double_talk_path.jpg',
+                        columns: ['Near-end', 'Far-end', 'Near-end Speech', 'Speex', 'LMS', 'RMSProp', 'NLMS', 'BD-RLS', 'D-KF', '<b>Meta-AEC</b>'],
+                        base: '../assets/audio/meta-af/aec_double_talk_path',
+                        files: ['d.mp3', 'u.mp3', 's.mp3', 'speex.mp3', 'aec_combo_lms_mdf.mp3', 'aec_combo_rms_mdf.mp3', 'aec_combo_nlms_mdf.mp3', 'aec_combo_rls_mdf.mp3', 'aec_combo_kf_mdf.mp3', 'meta_aec_16_combo_rl_4_1024_512_r2.mp3']
+                    },
+                    {
+                        summary: 'Double-Talk with Path Change & Nonlinearities',
+                        image: '../assets/img/meta-af/aec_double_talk_nonlinear.jpg',
+                        columns: ['Near-end', 'Far-end', 'Near-end Speech', 'Speex', 'LMS', 'RMSProp', 'NLMS', 'BD-RLS', 'D-KF', '<b>Meta-AEC</b>'],
+                        base: '../assets/audio/meta-af/aec_double_talk_nonlinear',
+                        files: ['d.mp3', 'u.mp3', 's.mp3', 'speex.mp3', 'aec_combo_lms_mdf.mp3', 'aec_combo_rms_mdf.mp3', 'aec_combo_nlms_mdf.mp3', 'aec_combo_rls_mdf.mp3', 'aec_combo_kf_mdf.mp3', 'meta_aec_16_combo_rl_4_1024_512_r2.mp3']
+                    }
+                ]
+            },
+            {
+                title: 'Equalization',
+                intro: 'In equalization, the goal is to estimate the inverse of an unknown transfer function, while only observing input and outputs of the forward system, as shown below. This is common for loudspeaker tuning.',
+                variants: [
+                    {
+                        summary: 'Unconstrained',
+                        image: '../assets/img/meta-af/eq_unconstrained.jpg',
+                        columns: ['Target', 'Input', 'LMS', 'RMSProp', 'NLMS', 'D-RLS', '<b>Meta-EQ</b>'],
+                        base: '../assets/audio/meta-af/eq_unconstrained',
+                        files: ['d.mp3', 'u.mp3', 'eq_none_lms.mp3', 'eq_none_rms.mp3', 'eq_none_nlms.mp3', 'eq_none_rls.mp3', 'meta_eq_none_16_c.mp3']
+                    },
+                    {
+                        summary: 'Constrained',
+                        image: '../assets/img/meta-af/eq_constrained.jpg',
+                        columns: ['Target', 'Input', 'LMS', 'RMSProp', 'NLMS', 'D-RLS', '<b>Meta-EQ</b>'],
+                        base: '../assets/audio/meta-af/eq_constrained',
+                        files: ['d.mp3', 'u.mp3', 'eq_antialias_lms.mp3', 'eq_antialias_rms.mp3', 'eq_antialias_nlms.mp3', 'eq_antialias_rls.mp3', 'meta_eq_antialias_16_c.mp3']
+                    }
+                ]
+            },
+            {
+                title: 'Dereverberation',
+                intro: 'We perform dereverberation via multi-channel linear prediction (MCLP) or the weighted prediction error (WPE) formulation as is commonly used for speech-to-text pre-processing.',
+                variants: [
+                    {
+                        summary: 'One, Four, Eight Mic.',
+                        image: '../assets/img/meta-af/wpe_all.jpg',
+                        note: 'Note, this task is a failure-mode of Meta-AF, where perceptual quality is poor despite solving the optimization task well.',
+                        columns: ['Reverberant', 'Anechoic', 'NARA 1 Mic.', '<b>Meta-WPE 1 Mic.</b>', 'NARA 4 Mic.', '<b>Meta-WPE 4 Mic.</b>', 'NARA 8 Mic.', '<b>Meta-WPE 8 Mic.</b>'],
+                        base: '../assets/audio/meta-af/wpe_all',
+                        files: ['d.mp3', 'u.mp3', 'nara_1.mp3', 'meta_wpe_5_1_aa_r2.mp3', 'nara_4.mp3', 'meta_wpe_5_4_aa_r2.mp3', 'nara_8.mp3', 'meta_wpe_5_8_aa_r2.mp3']
+                    }
+                ]
+            },
+            {
+                title: 'Beamforming',
+                intro: 'For the final task, we perform interference cancellation using the minimum variance distortionless response (MVDR) beamformer.',
+                variants: [
+                    {
+                        summary: 'Diffuse Interferer',
+                        image: '../assets/img/meta-af/gsc_diffuse.jpg',
+                        columns: ['Clean Speech', 'Mixture', 'LMS', 'RMSProp', 'NLMS', 'BD-RLS', '<b>Meta-GSC</b>'],
+                        base: '../assets/audio/meta-af/gsc_diffuse',
+                        files: ['s.mp3', 'm.mp3', 'gsc_lms_combo_default_aa.mp3', 'gsc_rms_combo_default_aa.mp3', 'gsc_nlms_combo_default_aa.mp3', 'gsc_rls_combo_default_aa.mp3', 'meta_gsc_combo_aa_default_75_r2.mp3']
+                    },
+                    {
+                        summary: 'Directional Interferer',
+                        image: '../assets/img/meta-af/gsc_directional.jpg',
+                        columns: ['Clean Speech', 'Mixture', 'LMS', 'RMSProp', 'NLMS', 'BD-RLS', '<b>Meta-GSC</b>'],
+                        base: '../assets/audio/meta-af/gsc_directional',
+                        files: ['s.mp3', 'm.mp3', 'gsc_lms_combo_default_aa.mp3', 'gsc_rms_combo_default_aa.mp3', 'gsc_nlms_combo_default_aa.mp3', 'gsc_rls_combo_default_aa.mp3', 'meta_gsc_combo_aa_default_75_r2.mp3']
+                    }
+                ]
+            }
+        ];
+
+        function createAudioCell(src) {
+            const td = document.createElement('td');
+            const audio = document.createElement('audio');
+            audio.controls = true;
+            audio.style.width = '90px';
+            const source = document.createElement('source');
+            source.src = src;
+            audio.appendChild(source);
+            td.appendChild(audio);
+            return td;
+        }
+
+        function buildVariant(variant) {
+            const details = document.createElement('details');
+            details.className = 'demo-details';
+            details.open = false;
+            const summary = document.createElement('summary');
+            summary.textContent = variant.summary;
+            details.appendChild(summary);
+
+            const content = document.createElement('div');
+            content.className = 'demo-content';
+
+            const img = document.createElement('img');
+            img.src = variant.image;
+            img.alt = variant.summary;
+            img.className = 'demo-image';
+            content.appendChild(img);
+
+            if (variant.note) {
+                const note = document.createElement('p');
+                note.textContent = variant.note;
+                content.appendChild(note);
+            }
+
+            const table = document.createElement('table');
+            table.className = 'demo-table';
+
+            const headerRow = document.createElement('tr');
+            variant.columns.forEach((column) => {
+                const th = document.createElement('th');
+                th.innerHTML = column;
+                headerRow.appendChild(th);
+            });
+            table.appendChild(headerRow);
+
+            for (let index = 0; index < 5; index += 1) {
+                const row = document.createElement('tr');
+                variant.files.forEach((file) => {
+                    const path = `${variant.base}/${index}/${file}`;
+                    row.appendChild(createAudioCell(path));
+                });
+                table.appendChild(row);
+            }
+
+            content.appendChild(table);
+            details.appendChild(content);
+            return details;
+        }
+
+        function renderDemoSections() {
+            const root = document.getElementById('demo-sections');
+            demoSections.forEach((section) => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'section';
+
+                const heading = document.createElement('h2');
+                heading.textContent = section.title;
+                wrapper.appendChild(heading);
+
+                if (section.intro) {
+                    const intro = document.createElement('p');
+                    intro.textContent = section.intro;
+                    wrapper.appendChild(intro);
+                }
+
+                if (section.title === 'Equalization') {
+                    const image = document.createElement('img');
+                    image.src = '../assets/img/meta-af/eq_block.png';
+                    image.alt = 'Equalization block';
+                    image.className = 'demo-image';
+                    image.style.width = '50%';
+                    image.style.minWidth = '280px';
+                    wrapper.appendChild(image);
+                }
+
+                if (section.title === 'Dereverberation') {
+                    const image = document.createElement('img');
+                    image.src = '../assets/img/meta-af/wpe_block.png';
+                    image.alt = 'Dereverberation block';
+                    image.className = 'demo-image';
+                    image.style.width = '50%';
+                    image.style.minWidth = '280px';
+                    wrapper.appendChild(image);
+                }
+
+                if (section.title === 'Beamforming') {
+                    const image = document.createElement('img');
+                    image.src = '../assets/img/meta-af/gsc_block.png';
+                    image.alt = 'Beamforming block';
+                    image.className = 'demo-image';
+                    image.style.width = '50%';
+                    image.style.minWidth = '280px';
+                    wrapper.appendChild(image);
+                }
+
+                section.variants.forEach((variant) => {
+                    wrapper.appendChild(buildVariant(variant));
+                });
+
+                root.appendChild(wrapper);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', renderDemoSections);
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta-AF</title>
+    <meta name="description" content="Meta-Learning for Adaptive Filters">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js"></script>
+</head>
+<body>
+    <div class="page">
+        <div class="title-section">
+            <h1>Meta-AF</h1>
+            <div class="institution">Meta-Learning for Adaptive Filters</div>
+            <img src="./assets/img/meta-af/meta-af.jpg" alt="Meta-AF project illustration" class="headshot">
+            <div class="social-links">
+                <a href="https://arxiv.org/abs/2204.11942" target="_blank">arXiv</a>
+                <a href="https://arxiv.org/pdf/2204.11942.pdf" target="_blank">PDF</a>
+                <a href="https://github.com/adobe-research/MetaAF" target="_blank">GitHub</a>
+                <a href="https://www.youtube.com/watch?v=incb1QNSvW8" target="_blank">Video</a>
+            </div>
+        </div>
+
+        <div class="abstract" id="overview">
+            <div class="abstract-title">Overview</div>
+            <p>Adaptive filtering algorithms are pervasive throughout signal processing and have had a material impact on a wide variety of domains including audio processing, telecommunications, biomedical sensing, astrophysics and cosmology, seismology, and many more. Adaptive filters typically operate via specialized online, iterative optimization methods such as least-mean squares or recursive least squares and aim to process signals in unknown or nonstationary environments. Such algorithms, however, can be slow and laborious to develop, require domain expertise to create, and necessitate mathematical insight for improvement. In this work, we seek to improve upon hand-derived adaptive filter algorithms and present a comprehensive framework for learning online, adaptive signal processing algorithms or update rules directly from data. To do so, we frame the development of adaptive filters as a meta-learning problem in the context of deep learning and use a form of self-supervision to learn online iterative update rules for adaptive filters. To demonstrate our approach, we focus on audio applications and systematically develop meta-learned adaptive filters for five canonical audio problems including system identification, acoustic echo cancellation, blind equalization, multi-channel dereverberation, and beamforming. We compare our approach against common baselines and/or recent state-of-the-art methods. We show we can learn high-performing adaptive filters that operate in real-time and, in most cases, significantly outperform each method we compare against -- all using a single general-purpose configuration of our approach.</p>
+        </div>
+
+        <div class="section">
+            <h2>Videos</h2>
+            <p><center>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/incb1QNSvW8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </center></p>
+            <p>For more details, please see: <a href="https://arxiv.org/abs/2204.11942" target="_blank">“Meta-AF: Meta-Learning for Adaptive Filters”</a>, <a href="https://jmcasebeer.github.io" target="_blank">Jonah Casebeer</a>, <a href="https://ccrma.stanford.edu/~njb/" target="_blank">Nicholas J. Bryan</a>, and <a href="https://paris.cs.illinois.edu/" target="_blank">Paris Smaragdis</a>, arXiv, 2022. Or, our talk:</p>
+            <p><center>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/iM2t5D2caBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </center></p>
+        </div>
+
+        <div class="section">
+            <h2>Links</h2>
+            <ul>
+                <li><a href="https://arxiv.org/abs/2204.11942" target="_blank">arXiv</a></li>
+                <li><a href="https://arxiv.org/pdf/2204.11942.pdf" target="_blank">arXiv pdf</a></li>
+                <li><a href="https://github.com/adobe-research/MetaAF" target="_blank">GitHub repo</a></li>
+                <li><a href="./demos/">Demo page</a></li>
+                <li><a href="https://twitter.com/CasebeerJonah/status/1519116249028046852" target="_blank">Twitter thread</a></li>
+            </ul>
+            <p>If you use ideas or code from this work, please cite our paper:</p>
+            <pre><code>@article{casebeer2022meta,
+  title={Meta-AF: Meta-Learning for Adaptive Filters},
+  author={Casebeer, Jonah and Bryan, Nicholas J and Smaragdis, Paris},
+  journal={arXiv preprint arXiv:2204.11942},
+  year={2022}
+}</code></pre>
+            <p>We release code and model checkpoints using the <code>metaaf</code> python package developed for this work. For demos of the code, setup instructions, and more, check out the <a href="https://github.com/adobe-research/MetaAF" target="_blank">GitHub repo</a>. To listen to model outputs, head to the <a href="./demos/">demo page</a>. We published an early version of these results in <a href="https://arxiv.org/abs/2110.04284" target="_blank">Auto-DSP</a>.</p>
+        </div>
+
+        <div class="section" id="demos">
+            <h2>Demos</h2>
+            <p>We release the inputs, targets, and results for five samples in the test set of each adaptive filter task for all models. These samples are all generated using the Meta-AF codebase in this <a href="https://github.com/adobe-research/MetaAF" target="_blank">GitHub repo</a>. Please consult our <a href="https://arxiv.org/abs/2204.11942" target="_blank">paper</a> for any experimental configuration details as well as descriptions of our baselines.</p>
+
+            <h3>System Identification</h3>
+            <p>We seek to estimate the transfer function between an audio source and a microphone over time as shown below, a task commonly used for room acoustics and head-related transfer function measurements for virtual and augmented reality. We use this task to ablate our model configuration, results are in the paper. For tasks with audio demos, see below.</p>
+            <p><img src="./assets/img/meta-af/sysid_block.png" alt="System identification block" style="width:50%; min-width:280px; display:block; margin:1rem auto;"></p>
+
+            <h3>Acoustic Echo Cancellation</h3>
+            <p>The goal of AEC is to remove the far-end echo from a near-end signal for voice communication by mimicking a time-varying transfer function as show below. The far-end refers to signal transmitted to a local listener and the near-end is captured by a local mic.</p>
+            <p><img src="./assets/img/meta-af/aec_block.png" alt="Acoustic echo cancellation block" style="width:50%; min-width:280px; display:block; margin:1rem auto;"></p>
+            <p>Demos for a single universal model evaluated on single-talk, double-talk, double-talk with a path change, and double-talk with nonlinearities are at the <a href="./demos/">demo page</a>.</p>
+
+            <h3>Equalization</h3>
+            <p>In equalization, the goal is to estimate the inverse of an unknown transfer function, while only observing input and outputs of the forward system, as shown below. This is common for loudspeaker tuning.</p>
+            <p><img src="./assets/img/meta-af/eq_block.png" alt="Equalization block" style="width:50%; min-width:280px; display:block; margin:1rem auto;"></p>
+            <p>Demos for constrained and unconstrained filters on the <a href="./demos/">demo page</a>.</p>
+
+            <h3>Dereverberation</h3>
+            <p>We perform dereverberation via multi-channel linear prediction (MCLP) or the weighted prediction error (WPE) formulation as is commonly used for speech-to-text pre-processing. The WPE formulation is based on the idea being able to predict the reverberant part of a signal from a linear combination of past samples, most commonly in the frequency-domain and shown as a block diagram below.</p>
+            <p><img src="./assets/img/meta-af/wpe_block.png" alt="Dereverberation block" style="width:50%; min-width:280px; display:block; margin:1rem auto;"></p>
+            <p>Demos for one, four and eight microphone configurations on the <a href="./demos/">demo page</a>.</p>
+
+            <h3>Beamforming</h3>
+            <p>For the final task, we perform interference cancellation using the minimum variance distortionless response (MVDR) beamformer. The MVDR beamformer can be implemented as an AF using the generalized sidelobe canceller (GSC) formulation and is commonly used for far-field voice communication and speech-to-text pre-processing. We depict a version of this problem setup below.</p>
+            <p><img src="./assets/img/meta-af/gsc_block.png" alt="Beamforming block" style="width:50%; min-width:280px; display:block; margin:1rem auto;"></p>
+            <p>Demos for a single universal model evaluated on diffuse and directional interferers are at the <a href="./demos/">demo page</a>.</p>
+        </div>
+
+        <div class="footnote">Last updated: July 2026</div>
+    </div>
+</body>
+</html>

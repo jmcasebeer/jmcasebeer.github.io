@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classification Trained AFs</title>
+    <meta name="description" content="Meta-AF Echo Cancellation for Improved Keyword Spotting">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js"></script>
+</head>
+<body>
+    <div class="page">
+        <div class="title-section">
+            <h1>Classification Trained AFs</h1>
+            <div class="institution">Meta-AF Echo Cancellation for Improved Keyword Spotting</div>
+            <div class="social-links">
+                <a href="https://arxiv.org/abs/2312.10605" target="_blank">arXiv</a>
+                <a href="https://arxiv.org/pdf/2312.10605.pdf" target="_blank">PDF</a>
+                <a href="https://github.com/adobe-research/MetaAF/tree/ct-meta-af/zoo/ct_af" target="_blank">GitHub</a>
+            </div>
+        </div>
+
+        <div class="abstract">
+            <div class="abstract-title">Overview</div>
+            <p>Adaptive filters (AFs) are vital for enhancing the performance of downstream tasks, such as speech recognition, sound event detection, and keyword spotting. However, traditional AF design prioritizes isolated signal-level objectives, often overlooking downstream task performance due to the labor-intensive manual tuning process. This can lead to suboptimal performance. Recent research has leveraged meta-learning to automatically learn AF update rules from data, alleviating the need for manual tuning when using simple signal-level objectives. This paper improves the Meta-AF framework by expanding it to support end-to-end training for arbitrary downstream tasks. We focus on classification tasks, where we introduce a novel training methodology that harnesses self-supervision and classifier feedback. We evaluate our approach on the combined task of acoustic echo cancellation and keyword spotting. Our findings demonstrate consistent performance improvements with both pre-trained and joint-trained keyword spotting models across synthetic and real playback. Notably, these improvements come without requiring additional tuning, increased inference-time complexity, or reliance on oracle signal-level training data.</p>
+        </div>
+
+        <div class="section">
+            <h2>Links</h2>
+            <ul>
+                <li><a href="https://arxiv.org/abs/2312.10605" target="_blank">arXiv</a></li>
+                <li><a href="https://arxiv.org/pdf/2312.10605.pdf" target="_blank">PDF</a></li>
+                <li><a href="https://github.com/adobe-research/MetaAF/tree/ct-meta-af/zoo/ct_af" target="_blank">GitHub repo</a></li>
+            </ul>
+            <p>We have released code and will release model checkpoints using the <code>metaaf</code> python package developed for this work. For demos of the code, setup instructions, and more, check out the new branch in our <a href="https://github.com/adobe-research/MetaAF/tree/ct-meta-af/zoo/ct_af" target="_blank">GitHub repo</a>.</p>
+        </div>
+
+        <div class="footnote">Last updated: July 2026</div>
+    </div>
+</body>
+</html>

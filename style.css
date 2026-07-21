@@ -86,8 +86,13 @@ h2 {
 }
 
 .headshot {
+    display: block;
+    width: min(100%, 240px);
+    max-width: 240px;
+    height: auto;
+    margin: 0 auto var(--space-lg);
     border-radius: 10%;
-    margin-bottom: var(--space-lg);
+    object-fit: cover;
 }
 
 .institution {
